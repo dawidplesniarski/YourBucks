@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     
     var carDataEntry = PieChartDataEntry(value: 0.0)
-    var houseHoldDataEntry = PieChartDataEntry(value: 0.0)
+    var houseHoldDataEntry = PieChartDataEntry(value: 0.0)// deklaruje kategorie wydatków
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     
@@ -28,12 +28,12 @@ class ViewController: UIViewController {
         
         pieChart.chartDescription?.text = ""
         
-        
         carDataEntry.value = 50.0
         houseHoldDataEntry.value = 50.0
+        // ustawiam wartosci wydatków w danych kategoriach
         
-        numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry]
-        updateChartData()
+        numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry] // przypisuje liczbę kategorii znajdujących się w wykresach
+        updateChartData()   // uaktualniam wykres
 
     }
     
