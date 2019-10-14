@@ -14,6 +14,8 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var picker: UIPickerView!
     
     var pickerData: [String] = [String]()
+    
+    var selectedCategory = Int()
 
     
     override func viewDidLoad() {
@@ -46,5 +48,11 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
 
-
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        selectedCategory = row
+        print(selectedCategory) // ustawiam zmienną selectedCategory na numer wiersza w pickerView
+        
+    }
 }
