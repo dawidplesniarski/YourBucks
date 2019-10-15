@@ -17,14 +17,28 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     var viewController = ViewController()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let amount = Double(amountTextField.text!)
+
+        if segue.identifier == "myGoingBackSegue"{
+            print("going back segue called")
+            let vc = segue.destination as! ViewController
+            vc.carAmount += amount ?? 0
+        }
+    }
+
     
     @IBAction func addButton(_ sender: UIButton) {
         
         let amount = Double(amountTextField.text!)
         print(amount!)
         viewController.carAmount += amount ?? 0
-        //ViewController.GlobalVariable.carDataEntry.value = amount
-        print(viewController.carAmount)
+        
+        print("2 widok: ",viewController.carAmount)
+        
+        
+        //self.dismiss(animated: true, completion: nil) //zamykanie 2 widoku
         
     }
     var pickerData: [String] = [String]()

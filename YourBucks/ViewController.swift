@@ -14,15 +14,19 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var pieChart: PieChartView!
     
-    var carAmount = 70.0
-
+    
+    var carAmount = Double()
     
     var carDataEntry = PieChartDataEntry(value: 0.0)
     var houseHoldDataEntry = PieChartDataEntry(value: 0.0)// deklaruje kategorie wydatków
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     
-   
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+        //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
+        print("1 widok", carAmount)
+        viewDidLoad()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +34,13 @@ class ViewController: UIViewController {
         pieChart.chartDescription?.text = ""
         
         carDataEntry.value = carAmount
-        houseHoldDataEntry.value = 50.0
+        houseHoldDataEntry.value = 1
+        
         // ustawiam wartosci wydatków w danych kategoriach
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry] // przypisuje liczbę kategorii znajdujących się w wykresach
-        print(carAmount)
+        print("1 widok ",carAmount)
         updateChartData()   // uaktualniam wykres
-
     }
     
     func updateChartData() {
@@ -50,7 +54,7 @@ class ViewController: UIViewController {
         pieChart.data = chartData
         
     }
-
+    
 
 }
 
