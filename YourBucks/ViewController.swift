@@ -14,11 +14,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var pieChart: PieChartView!
     
+    var carAmount: Double = 1
+    var houseHoldAmount: Double = 1
+    var billsAmount: Double = 1
+    var foodAmount: Double = 1
+    var healthAmount: Double = 1
+    var hygieneAmount: Double = 1
     
-    var carAmount = Double()
     
     var carDataEntry = PieChartDataEntry(value: 0.0)
-    var houseHoldDataEntry = PieChartDataEntry(value: 0.0)// deklaruje kategorie wydatków
+    var houseHoldDataEntry = PieChartDataEntry(value: 0.0)
+    var billsDataEntry = PieChartDataEntry(value: 0.0)
+    var foodDataEntry = PieChartDataEntry(value: 0.0)
+    var healthDataEntry = PieChartDataEntry(value: 0.0)
+    var hygieneDataEntry = PieChartDataEntry(value: 0.0) // deklaruje kategorie wydatków
+
+
+
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     
@@ -34,11 +46,15 @@ class ViewController: UIViewController {
         pieChart.chartDescription?.text = ""
         
         carDataEntry.value = carAmount
-        houseHoldDataEntry.value = 1
+        houseHoldDataEntry.value = houseHoldAmount
+        billsDataEntry.value = billsAmount
+        foodDataEntry.value = foodAmount
+        healthDataEntry.value = healthAmount
+        hygieneDataEntry.value = hygieneAmount
         
         // ustawiam wartosci wydatków w danych kategoriach
         
-        numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry] // przypisuje liczbę kategorii znajdujących się w wykresach
+        numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
         print("1 widok ",carAmount)
         updateChartData()   // uaktualniam wykres
     }
@@ -47,7 +63,7 @@ class ViewController: UIViewController {
         let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let colors = [UIColor(named:"pastel_pink"),UIColor(named:"azure")]
+        let colors = [UIColor(named:"pastel_pink"),UIColor(named:"azure"),UIColor(named:"orange"),UIColor(named:"light_purple"),UIColor(named:"pastel_yellow"),UIColor(named:"pastel_green")]
         
         chartDataSet.colors = colors as! [NSUIColor]
         

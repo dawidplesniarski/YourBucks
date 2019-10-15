@@ -33,7 +33,23 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         let amount = Double(amountTextField.text!)
         print(amount!)
-        viewController.carAmount += amount ?? 0
+        
+        switch selectedCategory {
+        case 0:
+            viewController.carAmount += amount ?? 0
+        case 1:
+            viewController.houseHoldAmount += amount ?? 0
+        case 2:
+            viewController.billsAmount += amount ?? 0
+        case 3:
+            viewController.foodAmount += amount ?? 0
+        case 4:
+            viewController.healthAmount += amount ?? 0
+        case 5:
+            viewController.healthAmount += amount ?? 0
+        default:
+            viewController.carAmount += amount ?? 0
+        }
         
         print("2 widok: ",viewController.carAmount)
         
