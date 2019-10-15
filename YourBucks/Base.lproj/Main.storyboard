@@ -67,18 +67,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-Aq-DzL">
-                                <rect key="frame" x="152" y="546" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="addButton:" destination="PnF-ao-rCX" eventType="primaryActionTriggered" id="OOn-fl-GcO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch1-P4-aAp">
-                                <rect key="frame" x="19" y="44" width="48" height="30"/>
+                                <rect key="frame" x="164" y="546" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Gotowe"/>
                                 <connections>
                                     <segue destination="Dgb-4G-VjR" kind="unwind" identifier="myGoingBackSegue" unwindAction="unwindToVCWithSegue:" id="FXU-VS-nJ3"/>
                                 </connections>

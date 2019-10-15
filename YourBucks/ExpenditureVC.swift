@@ -22,7 +22,9 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         let amount = Double(amountTextField.text!)
 
         if segue.identifier == "myGoingBackSegue"{
+            
             print("going back segue called")
+            
             let vc = segue.destination as! ViewController
             if(selectedCategory == 0)   {vc.carAmount += amount ?? 0}
             if(selectedCategory == 1)   {vc.houseHoldAmount += amount ?? 0}
@@ -33,7 +35,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         }
     }
 
-    
+    /*
     @IBAction func addButton(_ sender: UIButton) {
         
         let amount = Double(amountTextField.text!)
@@ -61,7 +63,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         //self.dismiss(animated: true, completion: nil) //zamykanie 2 widoku
         
-    }
+    } */
     var pickerData: [String] = [String]()
     
     var selectedCategory = Int()
