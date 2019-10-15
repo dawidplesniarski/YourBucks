@@ -46,12 +46,22 @@ class ViewController: UIViewController {
         pieChart.chartDescription?.text = ""
         
         carDataEntry.value = carAmount
-        houseHoldDataEntry.value = houseHoldAmount
-        billsDataEntry.value = billsAmount
-        foodDataEntry.value = foodAmount
-        healthDataEntry.value = healthAmount
-        hygieneDataEntry.value = hygieneAmount
+        carDataEntry.label = "Samochód"
         
+        houseHoldDataEntry.value = houseHoldAmount
+        houseHoldDataEntry.label = "Dom"
+        
+        billsDataEntry.value = billsAmount
+        billsDataEntry.label = "Rachunki"
+        
+        foodDataEntry.value = foodAmount
+        foodDataEntry.label = "Jedzenie"
+        
+        healthDataEntry.value = healthAmount
+        healthDataEntry.label = "Zdrowie"
+        
+        hygieneDataEntry.value = hygieneAmount
+        hygieneDataEntry.label = "Higiena"
         // ustawiam wartosci wydatków w danych kategoriach
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
