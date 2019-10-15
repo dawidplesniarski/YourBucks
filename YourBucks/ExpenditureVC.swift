@@ -11,13 +11,20 @@ import UIKit
 class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
 
+
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
+    
+    var viewController = ViewController()
+    
     
     @IBAction func addButton(_ sender: UIButton) {
         
         let amount = Double(amountTextField.text!)
         print(amount!)
+        viewController.carAmount += amount ?? 0
+        //ViewController.GlobalVariable.carDataEntry.value = amount
+        print(viewController.carAmount)
         
     }
     var pickerData: [String] = [String]()

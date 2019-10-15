@@ -9,30 +9,32 @@
 import UIKit
 import Charts
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var pieChart: PieChartView!
+    
+    var carAmount = 70.0
+
     
     var carDataEntry = PieChartDataEntry(value: 0.0)
     var houseHoldDataEntry = PieChartDataEntry(value: 0.0)// deklaruje kategorie wydatków
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     
-    
-    
-    
-
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pieChart.chartDescription?.text = ""
         
-        carDataEntry.value = 50.0
+        carDataEntry.value = carAmount
         houseHoldDataEntry.value = 50.0
         // ustawiam wartosci wydatków w danych kategoriach
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry] // przypisuje liczbę kategorii znajdujących się w wykresach
+        print(carAmount)
         updateChartData()   // uaktualniam wykres
 
     }
