@@ -11,8 +11,15 @@ import UIKit
 class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
 
+    @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
     
+    @IBAction func addButton(_ sender: UIButton) {
+        
+        let amount = Double(amountTextField.text!)
+        print(amount!)
+        
+    }
     var pickerData: [String] = [String]()
     
     var selectedCategory = Int()
@@ -53,6 +60,8 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         // The parameter named row and component represents what was selected.
         selectedCategory = row
         print(selectedCategory) // ustawiam zmienną selectedCategory na numer wiersza w pickerView
-        
     }
+    
+    
+
 }

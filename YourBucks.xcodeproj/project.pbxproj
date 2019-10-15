@@ -73,11 +73,11 @@
 			children = (
 				6F315AB82353825300435E30 /* AppDelegate.swift */,
 				6F315ABA2353825300435E30 /* ViewController.swift */,
+				6F957FCA2354EDEB00CC305B /* ExpenditureVC.swift */,
 				6F315ABC2353825300435E30 /* Main.storyboard */,
 				6F315ABF2353825500435E30 /* Assets.xcassets */,
 				6F315AC12353825500435E30 /* LaunchScreen.storyboard */,
 				6F315AC42353825500435E30 /* Info.plist */,
-				6F957FCA2354EDEB00CC305B /* ExpenditureVC.swift */,
 			);
 			path = YourBucks;
 			sourceTree = "<group>";
