@@ -55,7 +55,8 @@ class ViewController: UIViewController {
         // ustawiam wartosci wydatków w danych kategoriach
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
-        print("1 widok ",carAmount)
+        
+        //print("1 widok ",carAmount)
         updateChartData()   // uaktualniam wykres
     }
     
