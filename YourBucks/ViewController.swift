@@ -16,16 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
-    var sallaryAmount: Double = 50
-    var bonusAmount: Double = 1
-    var savingsAmount: Double = 1
-    var paymentAmount: Double = 50   // zmienne określające wielkość poszczególnych przychodów
+    
+    var sallaryAmount: Double = 1
+    var bonusAmount: Double = 2
+    var savingsAmount: Double = 3
+    var paymentAmount: Double = 4   // zmienne określające wielkość poszczególnych przychodów
     
     
-    var sallaryDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
-    var bonusDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
-    var savingsDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
-    var paymentDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
+    var sallaryDataEntry = BarChartDataEntry(x: 10.0, yValues: [10.0])
+    var bonusDataEntry = BarChartDataEntry(x: 12.0, yValues: [10.0])
+    var savingsDataEntry = BarChartDataEntry(x: 14.0, yValues: [10.0])
+    var paymentDataEntry = BarChartDataEntry(x: 16.0, yValues: [10.0])
 
     
     var carAmount: Double = 1
@@ -85,7 +86,8 @@ class ViewController: UIViewController {
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
         
-        
+        //barChart.drawValueAboveBarEnabled = false
+
         
         barChart.chartDescription?.text = "Dochody"
         sallaryDataEntry.yValues = [sallaryAmount]
