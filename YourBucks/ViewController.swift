@@ -13,6 +13,7 @@ import Charts
 class ViewController: UIViewController {
 
     @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var userBalanceTextField: UITextField!
     
     var carAmount: Double = 1
     var houseHoldAmount: Double = 1
@@ -20,7 +21,9 @@ class ViewController: UIViewController {
     var foodAmount: Double = 1
     var healthAmount: Double = 1
     var hygieneAmount: Double = 1
+//zmienne okreslajace salda poszczegolnych kategorii (domyslnie 0.0)
     
+    var userBalance: Double = 0.0 //zmienna okreslajaca saldo calkowite
     
     var carDataEntry = PieChartDataEntry(value: 0.0)
     var houseHoldDataEntry = PieChartDataEntry(value: 0.0)
@@ -36,12 +39,14 @@ class ViewController: UIViewController {
     
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
         //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
-        print("1 widok", carAmount)
+        //print("1 widok", carAmount)
         viewDidLoad()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userBalanceTextField.text = String(userBalance) + " zł"
         
         pieChart.chartDescription?.text = ""
         

@@ -31,7 +31,8 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             if(selectedCategory == 2)   {vc.billsAmount += amount ?? 0}
             if(selectedCategory == 3)   {vc.foodAmount += amount ?? 0}
             if(selectedCategory == 4)   {vc.healthAmount += amount ?? 0}
-            if(selectedCategory == 5)   {vc.carAmount += amount ?? 0}
+            if(selectedCategory == 5)   {vc.hygieneAmount += amount ?? 0}
+            vc.userBalance -= amount ?? 0
         }
     }
 
