@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
-    var sallaryAmount: Double = 1
+    var sallaryAmount: Double = 50
     var bonusAmount: Double = 1
     var savingsAmount: Double = 1
-    var paymentAmount: Double = 1   // zmienne określające wielkość poszczególnych przychodów
+    var paymentAmount: Double = 50   // zmienne określające wielkość poszczególnych przychodów
     
     
     var sallaryDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
@@ -89,6 +89,9 @@ class ViewController: UIViewController {
         
         barChart.chartDescription?.text = "Dochody"
         sallaryDataEntry.yValues = [sallaryAmount]
+        bonusDataEntry.yValues = [bonusAmount]
+        savingsDataEntry.yValues = [savingsAmount]
+        paymentDataEntry.yValues = [paymentAmount]
         
         
         numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
@@ -101,11 +104,19 @@ class ViewController: UIViewController {
         let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
+        let barChartDataSet = BarChartDataSet(entries: numberOfDownloadBarDataEntries, label: nil)
+        let barChartData = BarChartData(dataSet: barChartDataSet)
+        
         let colors = [UIColor(named:"pastel_pink"),UIColor(named:"azure"),UIColor(named:"orange"),UIColor(named:"light_purple"),UIColor(named:"pastel_yellow"),UIColor(named:"pastel_green")]
         
+        let barColors = [UIColor(named:"pastel_pink"),UIColor(named:"orange"),UIColor(named:"pastel_yellow"),UIColor(named:"pastel_green")]
+        
         chartDataSet.colors = colors as! [NSUIColor]
+        barChartDataSet.colors = barColors as! [NSUIColor]
+
         
         pieChart.data = chartData
+        barChart.data = barChartData
         
     }
     
