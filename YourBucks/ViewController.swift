@@ -12,8 +12,21 @@ import Charts
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
+    
+    var sallaryAmount: Double = 1
+    var bonusAmount: Double = 1
+    var savingsAmount: Double = 1
+    var paymentAmount: Double = 1   // zmienne określające wielkość poszczególnych przychodów
+    
+    
+    var sallaryDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
+    var bonusDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
+    var savingsDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
+    var paymentDataEntry = BarChartDataEntry(x: 0.0, yValues: [100.0])
+
     
     var carAmount: Double = 1
     var houseHoldAmount: Double = 1
@@ -36,6 +49,7 @@ class ViewController: UIViewController {
 
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
+    var numberOfDownloadBarDataEntries = [BarChartDataEntry]()
     
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
         //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
@@ -48,7 +62,7 @@ class ViewController: UIViewController {
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
-        pieChart.chartDescription?.text = ""
+        pieChart.chartDescription?.text = "Wydatki"
         
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
@@ -70,6 +84,14 @@ class ViewController: UIViewController {
         // ustawiam wartosci wydatków w danych kategoriach
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
+        
+        
+        
+        barChart.chartDescription?.text = "Dochody"
+        sallaryDataEntry.yValues = [sallaryAmount]
+        
+        
+        numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
         
         //print("1 widok ",carAmount)
         updateChartData()   // uaktualniam wykres
