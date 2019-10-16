@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--IncomeVC-->
         <scene sceneID="WhA-Bt-GM2">
             <objects>
-                <viewController id="Qi9-Ld-EkN" sceneMemberID="viewController">
+                <viewController id="Qi9-Ld-EkN" customClass="IncomeVC" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ne-Xe-xro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,13 +82,28 @@
                                 <rect key="frame" x="164" y="564" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Gotowe"/>
+                                <connections>
+                                    <segue destination="Mjn-Jp-jWg" kind="unwind" identifier="myGoingBackSegue2" unwindAction="unwindToVCWithSegue:" id="qcZ-Hk-mi7"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-Dn-gWc">
+                                <rect key="frame" x="90" y="302" width="234" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oKf-gF-xMw"/>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="nV0-Dn-gWc" id="ba6-07-lOi"/>
+                        <outlet property="pickerView" destination="vSe-4I-TSf" id="IRH-zE-FPB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xm-UT-jkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Mjn-Jp-jWg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="47.826086956521742" y="758.70535714285711"/>
         </scene>
