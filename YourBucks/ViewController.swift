@@ -9,13 +9,84 @@
 import UIKit
 import Charts
 
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var userBalanceTextField: UITextField!
+    
+    var carAmount: Double = 1
+    var houseHoldAmount: Double = 1
+    var billsAmount: Double = 1
+    var foodAmount: Double = 1
+    var healthAmount: Double = 1
+    var hygieneAmount: Double = 1
+//zmienne okreslajace salda poszczegolnych kategorii (domyslnie 0.0)
+    
+    var userBalance: Double = 0.0 //zmienna okreslajaca saldo calkowite
+    
+    var carDataEntry = PieChartDataEntry(value: 0.0)
+    var houseHoldDataEntry = PieChartDataEntry(value: 0.0)
+    var billsDataEntry = PieChartDataEntry(value: 0.0)
+    var foodDataEntry = PieChartDataEntry(value: 0.0)
+    var healthDataEntry = PieChartDataEntry(value: 0.0)
+    var hygieneDataEntry = PieChartDataEntry(value: 0.0) // deklaruje kategorie wydatków
+
+
+
+    
+    var numberOfDownloadsDataEntries = [PieChartDataEntry]()
+    
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+        //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
+        //print("1 widok", carAmount)
+        viewDidLoad()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        userBalanceTextField.text = String(userBalance) + " zł"
+        
+        pieChart.chartDescription?.text = ""
+        
+        carDataEntry.value = carAmount
+        carDataEntry.label = "Samochód"
+        
+        houseHoldDataEntry.value = houseHoldAmount
+        houseHoldDataEntry.label = "Dom"
+        
+        billsDataEntry.value = billsAmount
+        billsDataEntry.label = "Rachunki"
+        
+        foodDataEntry.value = foodAmount
+        foodDataEntry.label = "Jedzenie"
+        
+        healthDataEntry.value = healthAmount
+        healthDataEntry.label = "Zdrowie"
+        
+        hygieneDataEntry.value = hygieneAmount
+        hygieneDataEntry.label = "Higiena"
+        // ustawiam wartosci wydatków w danych kategoriach
+        
+        numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
+        
+        //print("1 widok ",carAmount)
+        updateChartData()   // uaktualniam wykres
     }
-
+    
+    func updateChartData() {
+        let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        
+        let colors = [UIColor(named:"pastel_pink"),UIColor(named:"azure"),UIColor(named:"orange"),UIColor(named:"light_purple"),UIColor(named:"pastel_yellow"),UIColor(named:"pastel_green")]
+        
+        chartDataSet.colors = colors as! [NSUIColor]
+        
+        pieChart.data = chartData
+        
+    }
+    
 
 }
 
