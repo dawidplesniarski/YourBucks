@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
+    let saveAmount = UserDefaults.standard
+
     
     var sallaryAmount: Double = 1
     var bonusAmount: Double = 2
@@ -60,6 +62,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //RestoreData()
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
@@ -119,7 +123,38 @@ class ViewController: UIViewController {
         
         pieChart.data = chartData
         barChart.data = barChartData
+    }
+    
+    
+    func SaveData(){
+        // Zapisuje wartość zmiennych przychodów
+        saveAmount.set(sallaryAmount, forKey: "sallaryAmount")
+        saveAmount.set(bonusAmount, forKey: "bonusAmount")
+        saveAmount.set(savingsAmount, forKey: "savingsAmount")
+        saveAmount.set(paymentAmount, forKey: "paymentAmount")
         
+        //zapisuję wartość zmiennych wydatków
+        saveAmount.set(carAmount, forKey: "carAmount")
+        saveAmount.set(houseHoldAmount, forKey: "houseHoldAmount")
+        saveAmount.set(billsAmount, forKey: "billsAmount")
+        saveAmount.set(foodAmount, forKey: "foodAmount")
+        saveAmount.set(healthAmount, forKey: "healthAmount")
+        saveAmount.set(hygieneAmount, forKey: "hygieneAmount")
+    }
+    
+    func RestoreData(){
+        //odtwarzam wartosci zmiennych po otworzeniu aplikacji
+        sallaryAmount = saveAmount.double(forKey: "sallaryAmount")
+        bonusAmount = saveAmount.double(forKey: "bonusAmount")
+        savingsAmount = saveAmount.double(forKey: "savingsAmount")
+        paymentAmount = saveAmount.double(forKey: "paymentAmount")
+        
+        carAmount = saveAmount.double(forKey: "carAmount")
+        houseHoldAmount = saveAmount.double(forKey: "houseHoldAmount")
+        billsAmount = saveAmount.double(forKey: "billsAmount")
+        foodAmount = saveAmount.double(forKey: "foodAmount")
+        healthAmount = saveAmount.double(forKey: "healthAmount")
+        hygieneAmount = saveAmount.double(forKey: "hygieneAmount")
     }
     
 
