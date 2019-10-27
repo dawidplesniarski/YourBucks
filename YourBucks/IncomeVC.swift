@@ -28,7 +28,7 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         if(selectedCategory == 3){ vc.paymentAmount += amount ?? 0}
 
         vc.userBalance += amount ?? 0
-        viewController.SaveData()
+        //viewController.SaveData()
     }
     
     var pickerData: [String] = [String]()

@@ -19,10 +19,19 @@ class ViewController: UIViewController {
     let saveAmount = UserDefaults.standard
 
     
-    var sallaryAmount: Double = 1
-    var bonusAmount: Double = 2
-    var savingsAmount: Double = 3
-    var paymentAmount: Double = 4   // zmienne określające wielkość poszczególnych przychodów
+    /*
+    @IBAction func SaveButton(_ sender: Any) {
+        SaveData()
+    } */
+    
+    @IBAction func RestoreButton(_ sender: Any) {
+        RestoreData()
+    }
+    
+    var sallaryAmount: Double = 0.0
+    var bonusAmount: Double = 0.0
+    var savingsAmount: Double = 0.0
+    var paymentAmount: Double = 0.0  // zmienne określające wielkość poszczególnych przychodów
     
     
     var sallaryDataEntry = BarChartDataEntry(x: 10.0, yValues: [10.0])
@@ -31,12 +40,12 @@ class ViewController: UIViewController {
     var paymentDataEntry = BarChartDataEntry(x: 16.0, yValues: [10.0])
 
     
-    var carAmount: Double = 1
-    var houseHoldAmount: Double = 1
-    var billsAmount: Double = 1
-    var foodAmount: Double = 1
-    var healthAmount: Double = 1
-    var hygieneAmount: Double = 1
+    var carAmount: Double = 0.0
+    var houseHoldAmount: Double = 0.0
+    var billsAmount: Double = 0.0
+    var foodAmount: Double = 0.0
+    var healthAmount: Double = 0.0
+    var hygieneAmount: Double = 0.0
 //zmienne okreslajace salda poszczegolnych kategorii (domyslnie 0.0)
     
     var userBalance: Double = 0.0 //zmienna okreslajaca saldo calkowite
@@ -57,13 +66,14 @@ class ViewController: UIViewController {
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
         //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
         //print("1 widok", carAmount)
+        SaveData()
         viewDidLoad()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //RestoreData()
+        RestoreData()
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
@@ -128,6 +138,7 @@ class ViewController: UIViewController {
     
     func SaveData(){
         // Zapisuje wartość zmiennych przychodów
+        saveAmount.set(userBalance, forKey: "userBalance")
         saveAmount.set(sallaryAmount, forKey: "sallaryAmount")
         saveAmount.set(bonusAmount, forKey: "bonusAmount")
         saveAmount.set(savingsAmount, forKey: "savingsAmount")
@@ -144,6 +155,7 @@ class ViewController: UIViewController {
     
     func RestoreData(){
         //odtwarzam wartosci zmiennych po otworzeniu aplikacji
+        userBalance = saveAmount.double(forKey: "userBalance")
         sallaryAmount = saveAmount.double(forKey: "sallaryAmount")
         bonusAmount = saveAmount.double(forKey: "bonusAmount")
         savingsAmount = saveAmount.double(forKey: "savingsAmount")

@@ -34,7 +34,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             if(selectedCategory == 5)   {vc.hygieneAmount += amount ?? 0}
             vc.userBalance -= amount ?? 0
             
-            viewController.SaveData()
+            //viewController.SaveData()
         }
     }
 
