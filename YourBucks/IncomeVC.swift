@@ -22,7 +22,13 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         let vc = segue.destination as! ViewController
 
+        if(selectedCategory == 0){ vc.sallaryAmount += amount ?? 0}
+        if(selectedCategory == 1){ vc.bonusAmount += amount ?? 0}
+        if(selectedCategory == 2){ vc.savingsAmount += amount ?? 0}
+        if(selectedCategory == 3){ vc.paymentAmount += amount ?? 0}
+
         vc.userBalance += amount ?? 0
+        //viewController.SaveData()
     }
     
     var pickerData: [String] = [String]()
