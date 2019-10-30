@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,14 +40,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-fb-54d">
                                 <rect key="frame" x="118" y="147" width="179" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Saldo :" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rah-mG-meU">
                                 <rect key="frame" x="159" y="109" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -74,14 +70,39 @@
                                     <action selector="RestoreButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="MbV-oK-tf1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijP-CE-faC">
+                                <rect key="frame" x="20" y="44" width="86" height="32"/>
+                                <state key="normal" title="Button" image="menu_icon"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="dX0-we-geK"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7Y-Py-1cs">
+                                <rect key="frame" x="20" y="97" width="35" height="32"/>
+                                <state key="normal" title="Button" image="settings_icon"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcL-lK-7v7">
+                                <rect key="frame" x="20" y="147" width="35" height="32"/>
+                                <state key="normal" title="Button" image="currency_icon"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NcL-lK-7v7" firstAttribute="top" secondItem="I7Y-Py-1cs" secondAttribute="bottom" constant="18" id="A01-1c-e1a"/>
+                            <constraint firstItem="ijP-CE-faC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dyb-v4-de8"/>
+                            <constraint firstItem="I7Y-Py-1cs" firstAttribute="leading" secondItem="ijP-CE-faC" secondAttribute="leading" id="FVf-qc-BRW"/>
+                            <constraint firstItem="I7Y-Py-1cs" firstAttribute="top" secondItem="ijP-CE-faC" secondAttribute="bottom" constant="21" id="f8a-bQ-1ou"/>
+                            <constraint firstItem="ijP-CE-faC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pFP-zh-hPE"/>
+                            <constraint firstItem="NcL-lK-7v7" firstAttribute="leading" secondItem="I7Y-Py-1cs" secondAttribute="leading" id="vnB-iG-X1f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="barChart" destination="nzf-tL-NkF" id="Dmz-Cv-prT"/>
                         <outlet property="pieChart" destination="zHz-LF-3ah" id="S2I-93-J6j"/>
                         <outlet property="userBalanceTextField" destination="dZP-fb-54d" id="ef8-0I-Gfj"/>
+                        <outletCollection property="MenuButtons" destination="I7Y-Py-1cs" collectionClass="NSMutableArray" id="EhV-wD-f7L"/>
+                        <outletCollection property="MenuButtons" destination="NcL-lK-7v7" collectionClass="NSMutableArray" id="RhL-zs-k3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,7 +114,7 @@
             <objects>
                 <viewController id="Qi9-Ld-EkN" customClass="IncomeVC" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ne-Xe-xro">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-4I-TSf">
@@ -111,7 +132,6 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-Dn-gWc">
                                 <rect key="frame" x="90" y="302" width="234" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -134,7 +154,7 @@
             <objects>
                 <viewController id="PnF-ao-rCX" customClass="ExpenditureVC" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Expedinture" id="mGC-Zt-aHw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcM-Oj-Ykr">
@@ -144,7 +164,6 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m47-re-Idb">
                                 <rect key="frame" x="90" y="274" width="234" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -171,4 +190,9 @@
             <point key="canvasLocation" x="1044.9275362318842" y="20.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="currency_icon" width="32" height="32"/>
+        <image name="menu_icon" width="32" height="32"/>
+        <image name="settings_icon" width="32" height="32"/>
+    </resources>
 </document>

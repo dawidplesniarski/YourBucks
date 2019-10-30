@@ -12,21 +12,13 @@ import Charts
 
 class ViewController: UIViewController {
 
+    @IBOutlet var MenuButtons: [UIButton]!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
     let saveAmount = UserDefaults.standard
 
-    
-    /*
-    @IBAction func SaveButton(_ sender: Any) {
-        SaveData()
-    } */
-    
-    @IBAction func RestoreButton(_ sender: Any) {
-        RestoreData()
-    }
     
     var sallaryAmount: Double = 0.0
     var bonusAmount: Double = 0.0
@@ -167,6 +159,15 @@ class ViewController: UIViewController {
         foodAmount = saveAmount.double(forKey: "foodAmount")
         healthAmount = saveAmount.double(forKey: "healthAmount")
         hygieneAmount = saveAmount.double(forKey: "hygieneAmount")
+    }
+    
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        MenuButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.7, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
 
