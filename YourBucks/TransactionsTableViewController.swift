@@ -10,7 +10,7 @@ import UIKit
 
 class TransactionsTableViewController: UITableViewController {
     
-    var transactions: [String: String] = [:]
+    var transactions:[(type: String, category: String, amount: Double)]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class TransactionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return transactions.count
+        return transactions!.count
     }
     
 
@@ -42,7 +42,7 @@ class TransactionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
 
-                print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
+        //print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
 
         //cell.textLabel?.text = transactions[indexPath.row][0]
 

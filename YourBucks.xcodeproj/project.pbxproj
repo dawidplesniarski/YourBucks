@@ -79,11 +79,11 @@
 				6F315ABA2353825300435E30 /* ViewController.swift */,
 				6F957FCA2354EDEB00CC305B /* ExpenditureVC.swift */,
 				6F1286D42357A6130023007A /* IncomeVC.swift */,
+				6F41E96C236C4C5900B42404 /* TransactionsTableViewController.swift */,
 				6F315ABC2353825300435E30 /* Main.storyboard */,
 				6F315ABF2353825500435E30 /* Assets.xcassets */,
 				6F315AC12353825500435E30 /* LaunchScreen.storyboard */,
 				6F315AC42353825500435E30 /* Info.plist */,
-				6F41E96C236C4C5900B42404 /* TransactionsTableViewController.swift */,
 			);
 			path = YourBucks;
 			sourceTree = "<group>";

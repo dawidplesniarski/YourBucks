@@ -58,14 +58,14 @@ class ViewController: UIViewController {
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
         //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
         //print("1 widok", carAmount)
-        SaveData()
-        viewDidLoad()
+        SaveData()  // zapisuje zaktualizowane dane do urządzenia
+        viewDidLoad()   // Odświeżam ekran
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        RestoreData()
+        RestoreData()   // Odtwarzam zapisane dane po uruchomieniu ekranu
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
