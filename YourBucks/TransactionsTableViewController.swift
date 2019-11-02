@@ -10,17 +10,24 @@ import UIKit
 
 class TransactionsTableViewController: UITableViewController {
     
-    var transactions:[(type: String, category: String, amount: Double)]?
+    //var transactions:[(type: String, category: String, amount: Double)]?
+    
+    var transactionCategory:String = ""
+    var transcactionAmount:Double = 0.0
+    var completeTransaction:String = ""
+    
+    var transactions = [String]()
+    
+    func expAdded(){
+        completeTransaction = "Typ: Wydatek Kategoria: "+transactionCategory+" Kwota: "+String(transcactionAmount)
+        transactions.append(completeTransaction)
+        print(completeTransaction)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -32,7 +39,7 @@ class TransactionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return transactions!.count
+        return transactions.count
     }
     
 
@@ -42,7 +49,7 @@ class TransactionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
 
-        //print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
+        print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
 
         //cell.textLabel?.text = transactions[indexPath.row][0]
 
