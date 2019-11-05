@@ -30,7 +30,7 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
         vc.userBalance += amount ?? 0
         
-        vc.transactions.append("Typ: dochód\n Kategoria: " + transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
+        vc.transactions.append("Typ: dochód\nKategoria: " + transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
 
     }
     

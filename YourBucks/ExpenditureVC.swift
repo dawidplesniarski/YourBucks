@@ -41,7 +41,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             //transactionsVC.transcactionAmount = amount ?? 0.0
             //transactionsVC.expAdded()
             //viewController.SaveData()
-            vc.transactions.append("Typ: wydatek Kategoria: "+transactionsCategory)
+            vc.transactions.append("Typ: wydatek\nKategoria: "+transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
         }
     }
     
