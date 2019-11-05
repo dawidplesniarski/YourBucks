@@ -172,6 +172,17 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "VcToTable"){
+                let tableVC = segue.destination as! TransactionsTableViewController
+               tableVC.tableTransactions = transactions
+        }
+    }
+    
+    @IBAction func historyPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "VcToTable", sender: self)
+    }
+    
 
 }
 

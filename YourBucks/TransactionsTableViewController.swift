@@ -26,12 +26,13 @@ class TransactionsTableViewController: UITableViewController {
         print(completeTransaction)
     }
      */
+    var tableTransactions = [String]()
     
     let viewController = ViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(viewController.transactions)
+        print(tableTransactions)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
 
     }

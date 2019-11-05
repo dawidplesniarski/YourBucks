@@ -103,7 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Historia"/>
                                 <connections>
-                                    <segue destination="gJh-SB-AU8" kind="show" id="C6e-rT-Uqg"/>
+                                    <action selector="historyPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="yxO-20-kOI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,6 +124,7 @@
                         <outlet property="userBalanceTextField" destination="dZP-fb-54d" id="ef8-0I-Gfj"/>
                         <outletCollection property="MenuButtons" destination="I7Y-Py-1cs" collectionClass="NSMutableArray" id="EhV-wD-f7L"/>
                         <outletCollection property="MenuButtons" destination="NcL-lK-7v7" collectionClass="NSMutableArray" id="RhL-zs-k3I"/>
+                        <segue destination="gJh-SB-AU8" kind="show" identifier="VcToTable" id="m8W-Fp-Qj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
