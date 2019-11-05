@@ -55,6 +55,8 @@ class TransactionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
+        cell.textLabel!.numberOfLines = 3
+        
         cell.textLabel?.text = tableTransactions[indexPath.row]
 
         let transactionName = tableTransactions[indexPath.row]
