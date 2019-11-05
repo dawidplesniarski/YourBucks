@@ -21,6 +21,7 @@ class ViewController: UIViewController {
 
     
     let saveAmount = UserDefaults.standard
+    let saveTransactions = UserDefaults.standard
 
     
     var sallaryAmount: Double = 0.0
@@ -145,6 +146,8 @@ class ViewController: UIViewController {
         saveAmount.set(foodAmount, forKey: "foodAmount")
         saveAmount.set(healthAmount, forKey: "healthAmount")
         saveAmount.set(hygieneAmount, forKey: "hygieneAmount")
+        
+        saveTransactions.set(transactions, forKey: "transactions")
     }
     
     func RestoreData(){
@@ -161,6 +164,8 @@ class ViewController: UIViewController {
         foodAmount = saveAmount.double(forKey: "foodAmount")
         healthAmount = saveAmount.double(forKey: "healthAmount")
         hygieneAmount = saveAmount.double(forKey: "hygieneAmount")
+        
+        transactions = saveTransactions.stringArray(forKey: "transactions") ?? [""]
     }
     
     @IBAction func menuButtonPressed(_ sender: Any) {

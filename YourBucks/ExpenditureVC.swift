@@ -35,12 +35,9 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             if(selectedCategory == 3)   {transactionsCategory = "Jedzenie"; vc.foodAmount += amount ?? 0}
             if(selectedCategory == 4)   {transactionsCategory = "Zdrowie"; vc.healthAmount += amount ?? 0}
             if(selectedCategory == 5)   {transactionsCategory = "Higiena"; vc.hygieneAmount += amount ?? 0}
+            
             vc.userBalance -= amount ?? 0
-            //transactionsVC.transactions?.append((type: "Wydatek", category: transactionsCategory, amount: amount ?? 0))
-            //transactionsVC.transactionCategory = transactionsCategory
-            //transactionsVC.transcactionAmount = amount ?? 0.0
-            //transactionsVC.expAdded()
-            //viewController.SaveData()
+    
             vc.transactions.append("Typ: wydatek\nKategoria: "+transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
         }
     }
