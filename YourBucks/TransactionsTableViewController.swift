@@ -46,7 +46,7 @@ class TransactionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewController.transactions.count
+        return tableTransactions.count
     }
     
 
@@ -55,9 +55,9 @@ class TransactionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel?.text = viewController.transactions[indexPath.row]
+        cell.textLabel?.text = tableTransactions[indexPath.row]
 
-        let transactionName = viewController.transactions[indexPath.row]
+        let transactionName = tableTransactions[indexPath.row]
         cell.textLabel?.text = transactionName
         return cell
     }
