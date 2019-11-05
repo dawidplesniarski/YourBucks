@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
+    var transactions = [String]()
+
+    
     let saveAmount = UserDefaults.standard
 
     
@@ -55,9 +58,8 @@ class ViewController: UIViewController {
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     var numberOfDownloadBarDataEntries = [BarChartDataEntry]()
     
-    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
-        //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
-        //print("1 widok", carAmount)
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {   // Funkcja przekazuje wartosci zmiennych dwukierunkowo
+        print(transactions)
         SaveData()  // zapisuje zaktualizowane dane do urządzenia
         viewDidLoad()   // Odświeżam ekran
     }
