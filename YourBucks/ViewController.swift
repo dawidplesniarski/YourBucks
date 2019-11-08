@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         //barChart.drawValueAboveBarEnabled = false
 
         
-        barChart.chartDescription?.text = "Dochody"
+        barChart.chartDescription?.text = "\n\n\nPensja           Premia            Oszczędności              Wpłaty"
         sallaryDataEntry.yValues = [sallaryAmount]
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]

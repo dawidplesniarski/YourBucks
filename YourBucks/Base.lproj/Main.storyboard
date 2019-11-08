@@ -246,14 +246,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Wprowadź kwotę:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-oe-34a">
+                                <rect key="frame" x="136" y="203" width="143" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nV0-Dn-gWc" firstAttribute="top" secondItem="SHc-oe-34a" secondAttribute="bottom" constant="8" id="5af-eT-YPy"/>
                             <constraint firstItem="ssF-nj-G6n" firstAttribute="top" secondItem="vSe-4I-TSf" secondAttribute="bottom" constant="35" id="AJ9-cK-XdP"/>
                             <constraint firstItem="vSe-4I-TSf" firstAttribute="centerY" secondItem="7Ne-Xe-xro" secondAttribute="centerY" id="Yjg-BD-fFe"/>
                             <constraint firstItem="vSe-4I-TSf" firstAttribute="centerX" secondItem="7Ne-Xe-xro" secondAttribute="centerX" id="aD4-7h-x9j"/>
                             <constraint firstItem="vSe-4I-TSf" firstAttribute="top" secondItem="nV0-Dn-gWc" secondAttribute="bottom" constant="38" id="lCu-7t-eZ3"/>
                             <constraint firstItem="ssF-nj-G6n" firstAttribute="centerX" secondItem="vSe-4I-TSf" secondAttribute="centerX" id="lWA-3V-TeE"/>
+                            <constraint firstItem="SHc-oe-34a" firstAttribute="centerX" secondItem="nV0-Dn-gWc" secondAttribute="centerX" id="rPz-mG-ueI"/>
                             <constraint firstItem="nV0-Dn-gWc" firstAttribute="centerX" secondItem="vSe-4I-TSf" secondAttribute="centerX" id="vmH-z6-M1J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oKf-gF-xMw"/>
@@ -303,12 +310,19 @@
                                     <segue destination="Dgb-4G-VjR" kind="unwind" identifier="myGoingBackSegue" unwindAction="unwindToVCWithSegue:" id="FXU-VS-nJ3"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Wprowadź kwotę:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f44-GJ-RYr">
+                                <rect key="frame" x="135.66666666666666" y="232" width="142.99999999999997" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="m47-re-Idb" firstAttribute="centerX" secondItem="lcM-Oj-Ykr" secondAttribute="centerX" id="12J-HE-EfD"/>
+                            <constraint firstItem="f44-GJ-RYr" firstAttribute="centerX" secondItem="m47-re-Idb" secondAttribute="centerX" id="LsI-VY-1bB"/>
                             <constraint firstItem="ch1-P4-aAp" firstAttribute="centerX" secondItem="lcM-Oj-Ykr" secondAttribute="centerX" id="OoP-t9-blj"/>
                             <constraint firstItem="lcM-Oj-Ykr" firstAttribute="centerX" secondItem="mGC-Zt-aHw" secondAttribute="centerX" id="Pzz-RJ-gx6"/>
+                            <constraint firstItem="m47-re-Idb" firstAttribute="top" secondItem="f44-GJ-RYr" secondAttribute="bottom" constant="8" id="QYf-Ra-B84"/>
                             <constraint firstItem="lcM-Oj-Ykr" firstAttribute="top" secondItem="m47-re-Idb" secondAttribute="bottom" constant="9" id="VGv-I3-nv6"/>
                             <constraint firstItem="lcM-Oj-Ykr" firstAttribute="centerY" secondItem="mGC-Zt-aHw" secondAttribute="centerY" id="cer-xy-lvr"/>
                             <constraint firstItem="ch1-P4-aAp" firstAttribute="top" secondItem="lcM-Oj-Ykr" secondAttribute="bottom" constant="50" id="rSr-uc-k8b"/>
