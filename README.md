@@ -1,9 +1,9 @@
 # YourBucks
 <p align="center">
-<img src="screenshots/main_screen.png" width="20%" height="20%"><
-    <img src="screenshots/expenditure_screen.png" width="20%" height="20%">
-    <img src="screenshots/income_screen.png" width="20%" height="20%">
-    <img src="screenshots/transactions_screen.png" width="20%" height="20%">
+<img src="screenshots/main_screen.png" width="20%" height="20%"><br>
+    <img src="screenshots/expenditure_screen.png" width="20%" height="20%"><br>
+    <img src="screenshots/income_screen.png" width="20%" height="20%"><br>
+    <img src="screenshots/transactions_screen.png" width="20%" height="20%"><br>
 </p>
 
 "YourBucks" application is a study project for the "Mobile System Programming" subject.
