@@ -17,11 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
-    var transactions = [String]()
+    var transactions = [String]()       // deklaracja tablicy String zawierającej historie transakcji
 
     
     let saveAmount = UserDefaults.standard
-    let saveTransactions = UserDefaults.standard
+    let saveTransactions = UserDefaults.standard    // stałe służące do zapisywania wartości zmiennych po zamknięciu aplikacji
 
     
     var sallaryAmount: Double = 0.0

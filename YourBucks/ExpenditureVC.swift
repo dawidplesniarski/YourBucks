@@ -38,7 +38,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             
             vc.userBalance -= amount ?? 0
     
-            vc.transactions.append("Typ: wydatek\nKategoria: "+transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
+            vc.transactions.append("Typ: wydatek\nKategoria: "+transactionsCategory + "\nKwota: -" + String(format:"%.2f", amount ?? 0) + " pln")
         }
     }
     
