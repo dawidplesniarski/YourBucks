@@ -9,20 +9,17 @@
 import UIKit
 
 class CurrenciesViewController: UIViewController {
+    
+    struct Currencies {
+        let currencyName: String
+        let currencyAmount: Double
+        let baseCurrency: String
+        let currencyDate: Date
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        if let url = URL(string: "https://api.exchangeratesapi.io/latest") {
-           URLSession.shared.dataTask(with: url) { data, response, error in
-              if let data = data {
-                 if let jsonString = String(data: data, encoding: .utf8) {
-                    print(jsonString)
-                 }
-               }
-           }.resume()
-        }
     }
     
 
