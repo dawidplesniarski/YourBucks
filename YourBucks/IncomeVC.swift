@@ -15,6 +15,7 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var pickerView: UIPickerView!
     
     var viewController = ViewController()
+    var transactionsCategory:String = ""
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -22,13 +23,15 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         let vc = segue.destination as! ViewController
 
-        if(selectedCategory == 0){ vc.sallaryAmount += amount ?? 0}
-        if(selectedCategory == 1){ vc.bonusAmount += amount ?? 0}
-        if(selectedCategory == 2){ vc.savingsAmount += amount ?? 0}
-        if(selectedCategory == 3){ vc.paymentAmount += amount ?? 0}
+        if(selectedCategory == 0){transactionsCategory = "Pensja"; vc.sallaryAmount += amount ?? 0}
+        if(selectedCategory == 1){transactionsCategory = "Premia"; vc.bonusAmount += amount ?? 0}
+        if(selectedCategory == 2){transactionsCategory = "Oszczędności"; vc.savingsAmount += amount ?? 0}
+        if(selectedCategory == 3){transactionsCategory = "Wpłaty"; vc.paymentAmount += amount ?? 0}
 
         vc.userBalance += amount ?? 0
-        //viewController.SaveData()
+        
+        vc.transactions.append("Typ: dochód\nKategoria: " + transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
+
     }
     
     var pickerData: [String] = [String]()

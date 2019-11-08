@@ -12,21 +12,17 @@ import Charts
 
 class ViewController: UIViewController {
 
+    @IBOutlet var MenuButtons: [UIButton]!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
-    let saveAmount = UserDefaults.standard
+    var transactions = [String]()       // deklaracja tablicy String zawierającej historie transakcji
 
     
-    /*
-    @IBAction func SaveButton(_ sender: Any) {
-        SaveData()
-    } */
-    
-    @IBAction func RestoreButton(_ sender: Any) {
-        RestoreData()
-    }
+    let saveAmount = UserDefaults.standard
+    let saveTransactions = UserDefaults.standard    // stałe służące do zapisywania wartości zmiennych po zamknięciu aplikacji
+
     
     var sallaryAmount: Double = 0.0
     var bonusAmount: Double = 0.0
@@ -63,17 +59,16 @@ class ViewController: UIViewController {
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     var numberOfDownloadBarDataEntries = [BarChartDataEntry]()
     
-    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
-        //performSegue(withIdentifier: "myGoingBackSegue", sender: self)
-        //print("1 widok", carAmount)
-        SaveData()
-        viewDidLoad()
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {   // Funkcja przekazuje wartosci zmiennych dwukierunkowo
+        print(transactions)
+        SaveData()  // zapisuje zaktualizowane dane do urządzenia
+        viewDidLoad()   // Odświeżam ekran
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        RestoreData()
+        RestoreData()   // Odtwarzam zapisane dane po uruchomieniu ekranu
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
@@ -151,6 +146,8 @@ class ViewController: UIViewController {
         saveAmount.set(foodAmount, forKey: "foodAmount")
         saveAmount.set(healthAmount, forKey: "healthAmount")
         saveAmount.set(hygieneAmount, forKey: "hygieneAmount")
+        
+        saveTransactions.set(transactions, forKey: "transactions")
     }
     
     func RestoreData(){
@@ -167,6 +164,28 @@ class ViewController: UIViewController {
         foodAmount = saveAmount.double(forKey: "foodAmount")
         healthAmount = saveAmount.double(forKey: "healthAmount")
         hygieneAmount = saveAmount.double(forKey: "hygieneAmount")
+        
+        transactions = saveTransactions.stringArray(forKey: "transactions") ?? [""]
+    }
+    
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        MenuButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.7, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "VcToTable"){
+                let tableVC = segue.destination as! TransactionsTableViewController
+               tableVC.tableTransactions = transactions
+        }
+    }
+    
+    @IBAction func historyPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "VcToTable", sender: self)
     }
     
 

@@ -16,6 +16,9 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var picker: UIPickerView!
     
     var viewController = ViewController()
+    let transactionsVC = TransactionsTableViewController()
+    var transactionsCategory:String = ""
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -26,47 +29,19 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             print("going back segue called")
             
             let vc = segue.destination as! ViewController
-            if(selectedCategory == 0)   {vc.carAmount += amount ?? 0}
-            if(selectedCategory == 1)   {vc.houseHoldAmount += amount ?? 0}
-            if(selectedCategory == 2)   {vc.billsAmount += amount ?? 0}
-            if(selectedCategory == 3)   {vc.foodAmount += amount ?? 0}
-            if(selectedCategory == 4)   {vc.healthAmount += amount ?? 0}
-            if(selectedCategory == 5)   {vc.hygieneAmount += amount ?? 0}
-            vc.userBalance -= amount ?? 0
+            if(selectedCategory == 0)   {transactionsCategory = "Samochód"; vc.carAmount += amount ?? 0}
+            if(selectedCategory == 1)   {transactionsCategory = "Dom"; vc.houseHoldAmount += amount ?? 0}
+            if(selectedCategory == 2)   {transactionsCategory = "Rachunki"; vc.billsAmount += amount ?? 0}
+            if(selectedCategory == 3)   {transactionsCategory = "Jedzenie"; vc.foodAmount += amount ?? 0}
+            if(selectedCategory == 4)   {transactionsCategory = "Zdrowie"; vc.healthAmount += amount ?? 0}
+            if(selectedCategory == 5)   {transactionsCategory = "Higiena"; vc.hygieneAmount += amount ?? 0}
             
-            //viewController.SaveData()
+            vc.userBalance -= amount ?? 0
+    
+            vc.transactions.append("Typ: wydatek\nKategoria: "+transactionsCategory + "\nKwota: -" + String(format:"%.2f", amount ?? 0) + " pln")
         }
     }
-
-    /*
-    @IBAction func addButton(_ sender: UIButton) {
-        
-        let amount = Double(amountTextField.text!)
-        print(amount!)
-       /*
-        switch selectedCategory {
-        case 0:
-            viewController.carAmount += amount ?? 0
-        case 1:
-            viewController.houseHoldAmount += amount ?? 0
-        case 2:
-            viewController.billsAmount += amount ?? 0
-        case 3:
-            viewController.foodAmount += amount ?? 0
-        case 4:
-            viewController.healthAmount += amount ?? 0
-        case 5:
-            viewController.healthAmount += amount ?? 0
-        default:
-            viewController.carAmount += amount ?? 0
-        }
-        */
-        print("2 widok: ",viewController.carAmount)
-        
-        
-        //self.dismiss(animated: true, completion: nil) //zamykanie 2 widoku
-        
-    } */
+    
     var pickerData: [String] = [String]()
     
     var selectedCategory = Int()
@@ -108,7 +83,4 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         selectedCategory = row
         print(selectedCategory) // ustawiam zmienną selectedCategory na numer wiersza w pickerView
     }
-    
-    
-
 }
