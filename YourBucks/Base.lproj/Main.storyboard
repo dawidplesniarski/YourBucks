@@ -46,22 +46,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KYi-zc-FdX">
-                                <rect key="frame" x="118" y="85" width="179" height="34"/>
+                                <rect key="frame" x="118" y="115" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXw-NK-dro">
-                                <rect key="frame" x="192" y="168" width="30" height="30"/>
+                                <rect key="frame" x="155" y="168" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Licz"/>
+                                <state key="normal" title="Przelicz Walutę"/>
+                                <connections>
+                                    <action selector="calculateCurrency:" destination="a0P-OP-WMm" eventType="primaryActionTriggered" id="X5X-5s-nU0"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eMS-qN-6jR">
-                                <rect key="frame" x="50" y="225" width="314" height="163"/>
+                                <rect key="frame" x="50" y="206" width="314" height="163"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="a0P-OP-WMm" id="qZT-IR-cH3"/>
+                                    <outlet property="delegate" destination="a0P-OP-WMm" id="axv-X6-B3W"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGY-e3-LhK">
+                                <rect key="frame" x="50" y="400" width="314" height="163"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="a0P-OP-WMm" id="0Uz-r0-J8T"/>
+                                    <outlet property="delegate" destination="a0P-OP-WMm" id="Y7E-6V-Dre"/>
+                                </connections>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-aH-g7B">
-                                <rect key="frame" x="100" y="706" width="214" height="34"/>
+                                <rect key="frame" x="100" y="590" width="214" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -71,6 +86,12 @@
                         <viewLayoutGuide key="safeArea" id="7WY-sG-pJH"/>
                     </view>
                     <navigationItem key="navigationItem" id="xYe-NU-I1Y"/>
+                    <connections>
+                        <outlet property="baseCurrencyPickerView" destination="eMS-qN-6jR" id="gCM-MP-DTW"/>
+                        <outlet property="currencyInput" destination="KYi-zc-FdX" id="HoD-hI-7JD"/>
+                        <outlet property="currencyOutput" destination="Yk8-aH-g7B" id="xfO-PS-8uI"/>
+                        <outlet property="targetCurrencyPickerView" destination="DGY-e3-LhK" id="j3y-Fp-Qev"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KdG-8d-XSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +268,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Wprowadź kwotę:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-oe-34a">
-                                <rect key="frame" x="136" y="203" width="143" height="34"/>
+                                <rect key="frame" x="135.66666666666666" y="203" width="142.99999999999997" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
