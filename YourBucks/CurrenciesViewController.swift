@@ -5,7 +5,6 @@
 //  Created by Dawid on 08/11/2019.
 //  Copyright © 2019 Dawid. All rights reserved.
 //
-
 import UIKit
 
 class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -28,7 +27,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
      
     
     @IBAction func calculateCurrency(_ sender: Any) {
-        
+        //currencyOutput.text = String(Double(currencyInput.text) * activeCurrency)
     }
     
     override func viewDidLoad() {
@@ -54,14 +53,16 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     {
                         self.myCurrency.append((key as? String)!)
                         self.myValue.append((value as? Double)!)
-                        print(content)
-
+                
                     }
                 }
                 }catch
                 {
                 print("append error")
                 }
+            }
+            DispatchQueue.main.async { // Problem z przeładowaniem elementów rozwiązany metodą DispatchQueue.
+                self.baseCurrencyPickerView.reloadAllComponents()
             }
            }.resume()
         }
@@ -92,7 +93,6 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     } */
     
-
     
     func numberOfComponents(in baseCurrencyPickerView: UIPickerView)  -> Int{
        return 1
@@ -119,9 +119,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
 /*
 let url = URL(string: "https://api.exchangeratesapi.io/latest")
-
 let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-
 if (error != nil)
 {
     print("Error")
@@ -139,7 +137,6 @@ else
                 self.myCurrency.append((key as? String)!)
                 self.myValue.append((value as? Double)!)
                 print(content)
-
             }
         }
         }catch
@@ -149,7 +146,6 @@ else
     }
 }
 //self.baseCurrencyPickerView.reloadAllComponents()
-
 }
 task.resume()
   print(myCurrency)
