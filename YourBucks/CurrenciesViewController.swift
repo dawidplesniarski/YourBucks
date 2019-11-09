@@ -17,6 +17,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var myCurrency:[String] = []
     var myValue:[Double] = []
     var activeCurrency:Double = 0
+    var currencyQuery:String = "PLN"
     
     struct Currencies {
         let currencyName: String
@@ -35,7 +36,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
 
 
-        if let url = URL(string: "https://api.exchangeratesapi.io/latest") {
+        if let url = URL(string: "https://api.exchangeratesapi.io/latest?base="+currencyQuery) {
            URLSession.shared.dataTask(with: url) { data, response, error in
             if(error != nil) { print("error") }
             /*
@@ -64,6 +65,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
             DispatchQueue.main.async { // Problem z przeładowaniem elementów rozwiązany metodą DispatchQueue.
                 self.baseCurrencyPickerView.reloadAllComponents()
+                self.targetCurrencyPickerView.reloadAllComponents()
             }
            }.resume()
         }
@@ -95,25 +97,30 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     } */
     
     
-    func numberOfComponents(in baseCurrencyPickerView: UIPickerView)  -> Int{
+    func numberOfComponents(in pickerView: UIPickerView)  -> Int{
        return 1
        }
        
        // The number of rows of data
-       func pickerView(_ baseCurrencyPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
            return myCurrency.count
        }
        
        // The data to return fopr the row and component (column) that's being passed in
-       func pickerView(_ baseCurrencyPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
            return myCurrency[row]
        }
        
 
-       func pickerView(_ baseCurrencyPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-           activeCurrency = myValue[row]
-        print(activeCurrency)
-        print(myCurrency[row])
+       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == baseCurrencyPickerView{
+            currencyQuery = myCurrency[row]
+            print(currencyQuery)
+        }else{
+            activeCurrency = myValue[row]
+            print(activeCurrency)
+        }
+        
        }
    
     
