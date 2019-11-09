@@ -27,7 +27,8 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
      
     
     @IBAction func calculateCurrency(_ sender: Any) {
-        //currencyOutput.text = String(Double(currencyInput.text) * activeCurrency)
+        let userInput:Double = Double(currencyInput.text!)!
+        currencyOutput.text = String(userInput * activeCurrency)
     }
     
     override func viewDidLoad() {
@@ -111,6 +112,8 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
        func pickerView(_ baseCurrencyPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
            activeCurrency = myValue[row]
+        print(activeCurrency)
+        print(myCurrency[row])
        }
    
     
