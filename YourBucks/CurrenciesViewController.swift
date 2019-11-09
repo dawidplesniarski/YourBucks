@@ -18,14 +18,14 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var myValue:[Double] = []
     var activeCurrency:Double = 0
     var currencyQuery:String = "PLN"
-    
+    /*
     struct Currencies {
         let currencyName: String
         let currencyAmount: Double
         let baseCurrency: String
         let currencyDate: Date
     }
-     
+    */
     
     @IBAction func calculateCurrency(_ sender: Any) {
         let userInput:Double = Double(currencyInput.text!)!
@@ -34,67 +34,10 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        if let url = URL(string: "https://api.exchangeratesapi.io/latest?base="+currencyQuery) {
-           URLSession.shared.dataTask(with: url) { data, response, error in
-            if(error != nil) { print("error") }
-            /*
-              if let data = data {
-                 if let jsonString = String(data: data, encoding: .utf8) {
-                    print(jsonString)
-                 }
-               }*/
-            if let content = data
-            {
-            do{
-                let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                if let rates = myJson["rates"] as? NSDictionary
-                {
-                    for (key,value) in rates
-                    {
-                        self.myCurrency.append((key as? String)!)
-                        self.myValue.append((value as? Double)!)
-                
-                    }
-                }
-                }catch
-                {
-                print("append error")
-                }
-            }
-            DispatchQueue.main.async { // Problem z przeładowaniem elementów rozwiązany metodą DispatchQueue.
-                self.baseCurrencyPickerView.reloadAllComponents()
-                self.targetCurrencyPickerView.reloadAllComponents()
-            }
-           }.resume()
-        }
+        loadJsonData()
     }
     
-    /*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let jsonUrlString = "https://api.exchangeratesapi.io/latest"
-        
-        guard let url = URL(string: jsonUrlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, err in
-            if(err != nil){
-                print("Error")
-            }else{
-                guard let data = data else {return}
-                
-                do {
-                    let course = try
-                        JSONDecoder().decode(Currencies.self, from: data)
-                    print(course.rates)
-                }catch{
-                    
-            }
-        }
-    }
-    } */
+    
     
     
     func numberOfComponents(in pickerView: UIPickerView)  -> Int{
@@ -115,48 +58,63 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == baseCurrencyPickerView{
             currencyQuery = myCurrency[row]
-            print(currencyQuery)
-        }else{
+            print("query: " + currencyQuery)
+            loadJsonData()
+        }
+        if pickerView == targetCurrencyPickerView{
             activeCurrency = myValue[row]
             print(activeCurrency)
         }
-        
        }
-   
     
-}
-
-
-/*
-let url = URL(string: "https://api.exchangeratesapi.io/latest")
-let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-if (error != nil)
-{
-    print("Error")
-}
-else
-{
-    if let content = data
-    {
-    do{
-        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-        if let rates = myJson["rates"] as? NSDictionary
-        {
-            for (key,value) in rates
-            {
-                self.myCurrency.append((key as? String)!)
-                self.myValue.append((value as? Double)!)
-                print(content)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        viewDidDisappear(true)
+    }
+    
+    
+    func loadJsonData(){
+        
+        
+        if let url = URL(string: "https://api.exchangeratesapi.io/latest?base="+currencyQuery) {
+           URLSession.shared.dataTask(with: url) { data, response, error in
+            if(error != nil) { print("error") }
+            /*
+              if let data = data {
+                 if let jsonString = String(data: data, encoding: .utf8) {
+                    print(jsonString)
+                 }
+               }*/
+            if(self.myValue != [] && self.myCurrency != []){
+                self.myValue=[]
+                self.myCurrency=[]
             }
-        }
-        }catch
-        {
-        print("append error")
+            if let content = data
+            {
+            do{
+                let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                if let rates = myJson["rates"] as? NSDictionary
+                {
+                    for (key,value) in rates
+                    {
+                        self.myCurrency.append((key as? String)!)
+                        self.myValue.append((value as? Double)!)
+                    }
+                }
+                }catch
+                {
+                print("append error")
+                }
+            }
+            DispatchQueue.main.async { // Problem z przeładowaniem elementów rozwiązany metodą DispatchQueue.
+                self.baseCurrencyPickerView.reloadAllComponents()
+                self.targetCurrencyPickerView.reloadAllComponents()
+            }
+           }.resume()
         }
     }
 }
-//self.baseCurrencyPickerView.reloadAllComponents()
-}
-task.resume()
-  print(myCurrency)
-  print(myValue) */
