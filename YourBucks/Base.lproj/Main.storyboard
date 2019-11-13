@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="sDq-K7-NJy" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0u-pP-nGZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QHj-ty-c5f"/>
@@ -29,15 +29,15 @@
             <objects>
                 <tableViewController id="gJh-SB-AU8" customClass="TransactionsTableViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mqd-WN-DGA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" id="sXJ-qe-XEL">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sXJ-qe-XEL" id="eWK-kr-wX1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -58,11 +58,11 @@
             <objects>
                 <viewController id="a0P-OP-WMm" customClass="CurrenciesViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C4f-ib-ACh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eMS-qN-6jR">
-                                <rect key="frame" x="50" y="218" width="314" height="163"/>
+                                <rect key="frame" x="50" y="218" width="275" height="163"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="a0P-OP-WMm" id="qZT-IR-cH3"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </pickerView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGY-e3-LhK">
-                                <rect key="frame" x="50" y="423" width="314" height="163"/>
+                                <rect key="frame" x="50" y="423" width="275" height="163"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="a0P-OP-WMm" id="0Uz-r0-J8T"/>
@@ -161,124 +161,81 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="chartViewArea" translatesAutoresizingMaskIntoConstraints="NO" id="zHz-LF-3ah" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="208" width="374" height="318"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="chartViewArea" translatesAutoresizingMaskIntoConstraints="NO" id="zHz-LF-3ah" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="161" width="335" height="237"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="318" id="Dg1-wS-JbG"/>
-                                    <constraint firstAttribute="width" constant="374" id="hRP-uC-2wT"/>
-                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jag-FG-sj4">
-                                <rect key="frame" x="20" y="793" width="61" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jag-FG-sj4">
+                                <rect key="frame" x="19" y="583" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Wydatek"/>
                                 <connections>
                                     <segue destination="PnF-ao-rCX" kind="show" identifier="PickerBoard" id="kTU-KY-7B8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6S2-lV-Zua">
-                                <rect key="frame" x="340" y="793" width="54" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6S2-lV-Zua">
+                                <rect key="frame" x="301" y="583" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dochód"/>
                                 <connections>
                                     <segue destination="Qi9-Ld-EkN" kind="show" id="p2w-39-OXl"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-fb-54d">
-                                <rect key="frame" x="117.66666666666669" y="147" width="179" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="REb-Nr-nP9"/>
-                                    <constraint firstAttribute="width" constant="179" id="YWN-WX-W40"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-fb-54d">
+                                <rect key="frame" x="118" y="108" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Saldo :" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rah-mG-meU">
-                                <rect key="frame" x="158.66666666666666" y="109" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="3h4-W0-WGc"/>
-                                    <constraint firstAttribute="width" constant="97" id="CsM-c2-FVw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijP-CE-faC">
-                                <rect key="frame" x="20" y="49" width="40" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="5ta-UW-MWj"/>
-                                    <constraint firstAttribute="width" constant="40" id="LsX-AS-RBS"/>
-                                    <constraint firstAttribute="height" constant="32" id="NcW-Dr-jpx"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="dBX-bk-Ad3"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijP-CE-faC">
+                                <rect key="frame" x="20" y="36" width="36" height="24"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="menu_icon"/>
                                 <connections>
                                     <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="dX0-we-geK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGb-6R-Efo">
-                                <rect key="frame" x="180.66666666666666" y="832" width="53" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGb-6R-Efo">
+                                <rect key="frame" x="161" y="603" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Historia"/>
                                 <connections>
                                     <action selector="historyPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="yxO-20-kOI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" restorationIdentifier="barChartViewArea" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-tL-NkF" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="557" width="374" height="201"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="barChartViewArea" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-tL-NkF" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="415" width="335" height="149"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="K66-dg-B8t"/>
-                                    <constraint firstAttribute="height" constant="201" id="s3M-AV-P5q"/>
-                                </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7Y-Py-1cs">
-                                <rect key="frame" x="20" y="109" width="40" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="pW2-av-zbx"/>
-                                    <constraint firstAttribute="width" constant="40" id="uW2-Wq-3bW"/>
-                                </constraints>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7Y-Py-1cs">
+                                <rect key="frame" x="20" y="81" width="36" height="24"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="settings_icon"/>
                                 <connections>
                                     <segue destination="sDq-K7-NJy" kind="show" id="zaq-ge-Igx"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcL-lK-7v7">
-                                <rect key="frame" x="20" y="159" width="40" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="oi0-H8-rI5"/>
-                                    <constraint firstAttribute="height" constant="32" id="yeg-Pm-VcM"/>
-                                </constraints>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcL-lK-7v7">
+                                <rect key="frame" x="20" y="118" width="36" height="24"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="currency_icon"/>
                                 <connections>
                                     <segue destination="a0P-OP-WMm" kind="show" id="HXu-2o-eT2"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Saldo :" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rah-mG-meU">
+                                <rect key="frame" x="140" y="65" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="I7Y-Py-1cs" firstAttribute="top" secondItem="ijP-CE-faC" secondAttribute="bottom" constant="28" id="Axn-Bj-LZN"/>
-                            <constraint firstItem="jag-FG-sj4" firstAttribute="top" secondItem="nzf-tL-NkF" secondAttribute="bottom" constant="35" id="HK5-Ha-Hgf"/>
-                            <constraint firstItem="I7Y-Py-1cs" firstAttribute="leading" secondItem="ijP-CE-faC" secondAttribute="leading" id="JeO-7Y-Bf3"/>
-                            <constraint firstItem="jag-FG-sj4" firstAttribute="leading" secondItem="nzf-tL-NkF" secondAttribute="leading" id="Jxy-lR-BIg"/>
-                            <constraint firstItem="cGb-6R-Efo" firstAttribute="centerX" secondItem="nzf-tL-NkF" secondAttribute="centerX" id="VNi-0m-c7u"/>
-                            <constraint firstItem="ijP-CE-faC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="Y77-gb-W5n"/>
-                            <constraint firstItem="NcL-lK-7v7" firstAttribute="top" secondItem="I7Y-Py-1cs" secondAttribute="bottom" constant="18" id="YUd-zU-tPL"/>
-                            <constraint firstItem="nzf-tL-NkF" firstAttribute="width" secondItem="zHz-LF-3ah" secondAttribute="width" id="ZXP-Xf-Eom"/>
-                            <constraint firstItem="NcL-lK-7v7" firstAttribute="leading" secondItem="I7Y-Py-1cs" secondAttribute="leading" id="ZmB-hs-wyd"/>
-                            <constraint firstItem="nzf-tL-NkF" firstAttribute="centerX" secondItem="zHz-LF-3ah" secondAttribute="centerX" id="bvG-9Y-tYZ"/>
-                            <constraint firstItem="zHz-LF-3ah" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-81" id="d33-2E-Txx"/>
-                            <constraint firstItem="dZP-fb-54d" firstAttribute="centerX" secondItem="zHz-LF-3ah" secondAttribute="centerX" id="fOZ-aV-lzu"/>
-                            <constraint firstItem="ijP-CE-faC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="geg-zd-fiG"/>
-                            <constraint firstItem="zHz-LF-3ah" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m1N-rL-wEH"/>
-                            <constraint firstItem="dZP-fb-54d" firstAttribute="top" secondItem="rah-mG-meU" secondAttribute="bottom" constant="8" id="pBm-Qv-2at"/>
-                            <constraint firstItem="nzf-tL-NkF" firstAttribute="top" secondItem="zHz-LF-3ah" secondAttribute="bottom" constant="31" id="qqj-Xl-7UO"/>
-                            <constraint firstItem="6S2-lV-Zua" firstAttribute="top" secondItem="nzf-tL-NkF" secondAttribute="bottom" constant="35" id="tYm-Gg-e0n"/>
-                            <constraint firstItem="rah-mG-meU" firstAttribute="centerX" secondItem="dZP-fb-54d" secondAttribute="centerX" id="vKY-wU-qi5"/>
-                            <constraint firstItem="zHz-LF-3ah" firstAttribute="top" secondItem="dZP-fb-54d" secondAttribute="bottom" constant="31" id="xgH-vV-WuT"/>
-                            <constraint firstItem="cGb-6R-Efo" firstAttribute="top" secondItem="nzf-tL-NkF" secondAttribute="bottom" constant="74" id="yAg-V0-uke"/>
-                            <constraint firstItem="6S2-lV-Zua" firstAttribute="trailing" secondItem="nzf-tL-NkF" secondAttribute="trailing" id="yez-UQ-kYx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -292,25 +249,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
+            <point key="canvasLocation" x="46.875" y="20"/>
         </scene>
         <!--IncomeVC-->
         <scene sceneID="WhA-Bt-GM2">
             <objects>
                 <viewController id="Qi9-Ld-EkN" customClass="IncomeVC" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ne-Xe-xro">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-4I-TSf">
-                                <rect key="frame" x="20" y="313" width="374" height="216"/>
+                                <rect key="frame" x="0.5" y="215.5" width="374" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="Bb2-OH-0RF"/>
                                     <constraint firstAttribute="width" constant="374" id="DUD-xQ-7Kc"/>
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssF-nj-G6n">
-                                <rect key="frame" x="163.66666666666666" y="564" width="87" height="35"/>
+                                <rect key="frame" x="144" y="466.5" width="87" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Jjc-VY-EBT"/>
                                     <constraint firstAttribute="width" constant="87" id="jaT-Ww-n5z"/>
@@ -321,7 +278,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-Dn-gWc">
-                                <rect key="frame" x="90" y="245" width="234" height="30"/>
+                                <rect key="frame" x="70.5" y="147.5" width="234" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="M0z-vV-3wK"/>
                                     <constraint firstAttribute="width" constant="234" id="PjA-j2-izm"/>
@@ -330,7 +287,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Wprowadź kwotę:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-oe-34a">
-                                <rect key="frame" x="135.66666666666666" y="203" width="142.99999999999997" height="34"/>
+                                <rect key="frame" x="116" y="105.5" width="143" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -363,18 +320,18 @@
             <objects>
                 <viewController id="PnF-ao-rCX" customClass="ExpenditureVC" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Expedinture" id="mGC-Zt-aHw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcM-Oj-Ykr">
-                                <rect key="frame" x="20" y="313" width="374" height="216"/>
+                                <rect key="frame" x="0.5" y="215.5" width="374" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="uCp-Lm-0QH"/>
                                     <constraint firstAttribute="width" constant="374" id="vPh-j1-ho3"/>
                                 </constraints>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m47-re-Idb">
-                                <rect key="frame" x="90" y="274" width="234" height="30"/>
+                                <rect key="frame" x="70.5" y="176.5" width="234" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="234" id="2aH-DN-kT7"/>
                                     <constraint firstAttribute="height" constant="30" id="gBr-Wi-3As"/>
@@ -383,7 +340,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch1-P4-aAp">
-                                <rect key="frame" x="163.66666666666666" y="579" width="87" height="35"/>
+                                <rect key="frame" x="144" y="481.5" width="87" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="815-HV-d6y"/>
                                     <constraint firstAttribute="height" constant="35" id="G1p-aM-aZx"/>
@@ -394,7 +351,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Wprowadź kwotę:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f44-GJ-RYr">
-                                <rect key="frame" x="135.66666666666666" y="232" width="142.99999999999997" height="34"/>
+                                <rect key="frame" x="116" y="134.5" width="143" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
