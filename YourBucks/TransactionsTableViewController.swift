@@ -32,7 +32,7 @@ class TransactionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tableTransactions)
+        //print(tableTransactions)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
 
     }

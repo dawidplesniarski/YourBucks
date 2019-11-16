@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     var numberOfDownloadBarDataEntries = [BarChartDataEntry]()
     
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {   // Funkcja przekazuje wartosci zmiennych dwukierunkowo
-        print(transactions)
+        //print(transactions)
         SaveData()  // zapisuje zaktualizowane dane do urządzenia
         viewDidLoad()   // Odświeżam ekran
     }
