@@ -451,7 +451,7 @@
         <image name="menu_icon" width="32" height="32"/>
         <image name="settings_icon" width="32" height="32"/>
         <namedColor name="burgundy-color">
-            <color red="0.89405359455958555" green="0.89405359455958555" blue="0.89405359455958555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
