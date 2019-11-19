@@ -184,6 +184,8 @@ class ViewController: UIViewController {
         saveAmount.removeObject(forKey: "hygieneAmount")
 
         saveTransactions.removeObject(forKey: "transactions")
+        viewDidLoad()
+        print("Reset data mainVC")
     }
     
     @IBAction func menuButtonPressed(_ sender: Any) {
@@ -206,12 +208,6 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "VcToTable", sender: self)
     }
     
-    @IBAction func deleteSettingsPressed(_ sender: Any) {
-        ResetData()
-        updateChartData()
-        print("delete")
-    }
-    
-    
+        
 }
 

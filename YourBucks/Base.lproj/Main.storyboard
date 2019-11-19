@@ -9,6 +9,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="Z8G-0I-ky9">
+            <objects>
+                <viewController id="icQ-Ba-pEv" customClass="SettingsViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zj2-4o-GqI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="light-background" translatesAutoresizingMaskIntoConstraints="NO" id="LWH-jJ-BYN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bb-3W-pqP">
+                                <rect key="frame" x="102" y="159" width="171" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="burgundy-color"/>
+                                <state key="normal" title="Wyczyść dane">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteSettingsPressed:" destination="icQ-Ba-pEv" eventType="primaryActionTriggered" id="l4K-9k-V73"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vkD-dN-ZDa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GXW-jH-UJd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSu-Ld-JWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-997.60000000000002" y="-690.14778325123154"/>
+        </scene>
         <!--Transactions Table View Controller-->
         <scene sceneID="7ME-UO-r53">
             <objects>
@@ -206,6 +239,9 @@
                                 <rect key="frame" x="20" y="92" width="36" height="29"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="settings_icon"/>
+                                <connections>
+                                    <segue destination="icQ-Ba-pEv" kind="show" id="5QB-e9-b95"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcL-lK-7v7">
                                 <rect key="frame" x="20" y="135" width="36" height="29"/>
