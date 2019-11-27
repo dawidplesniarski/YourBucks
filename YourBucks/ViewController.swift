@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         //barChart.drawValueAboveBarEnabled = false
 
         
-        barChart.chartDescription?.text = "\n\n\nPensja           Premia            Oszczędności              Wpłaty"
+        barChart.chartDescription?.text = "\n\n\nPensja      Premia        Oszczędności         Wpłaty"
         sallaryDataEntry.yValues = [sallaryAmount]
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]
@@ -168,6 +168,26 @@ class ViewController: UIViewController {
         transactions = saveTransactions.stringArray(forKey: "transactions") ?? [""]
     }
     
+    func ResetData(){
+        saveAmount.removeObject(forKey: "userBalance")
+        
+        saveAmount.removeObject(forKey: "sallaryAmount")
+        saveAmount.removeObject(forKey: "bonusAmount")
+        saveAmount.removeObject(forKey: "savingsAmount")
+        saveAmount.removeObject(forKey: "paymentAmount")
+        
+        saveAmount.removeObject(forKey: "carAmount")
+        saveAmount.removeObject(forKey: "houseHoldAmount")
+        saveAmount.removeObject(forKey: "billsAmount")
+        saveAmount.removeObject(forKey: "foodAmount")
+        saveAmount.removeObject(forKey: "healthAmount")
+        saveAmount.removeObject(forKey: "hygieneAmount")
+
+        saveTransactions.removeObject(forKey: "transactions")
+        viewDidLoad()
+        print("Reset data mainVC")
+    }
+    
     @IBAction func menuButtonPressed(_ sender: Any) {
         MenuButtons.forEach{(button) in
             UIView.animate(withDuration: 0.7, animations: {
@@ -188,6 +208,6 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "VcToTable", sender: self)
     }
     
-
+        
 }
 

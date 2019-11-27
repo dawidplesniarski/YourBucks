@@ -28,8 +28,10 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     */
     
     @IBAction func calculateCurrency(_ sender: Any) {
+        if(currencyInput.text != ""){
         let userInput:Double = Double(currencyInput.text!)!
         currencyOutput.text = String(userInput * activeCurrency)
+        }
     }
     
     override func viewDidLoad() {
