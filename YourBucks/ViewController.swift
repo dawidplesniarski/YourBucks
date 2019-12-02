@@ -17,6 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var userBalanceTextField: UITextField!
     
+    @IBOutlet weak var pieChartBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var barChartBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var userBalanceBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var expButtonBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var incButtonBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var historyButtonBlurEffect: UIVisualEffectView!
+    
     var transactions = [String]()       // deklaracja tablicy String zawierającej historie transakcji
 
     
@@ -67,13 +74,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        radiusEffect()
         
         RestoreData()   // Odtwarzam zapisane dane po uruchomieniu ekranu
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
         pieChart.chartDescription?.text = "Wydatki"
-        
+        pieChart.transparentCircleRadiusPercent = 0.0
+        pieChart.holeColor = UIColor(red: 216, green: 189, blue: 166, alpha: 0)
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
         
@@ -206,6 +215,21 @@ class ViewController: UIViewController {
     
     @IBAction func historyPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "VcToTable", sender: self)
+    }
+    
+    func radiusEffect(){
+        userBalanceBlurEffect.layer.cornerRadius = 10
+        userBalanceBlurEffect.clipsToBounds = true
+        pieChartBlurEffect.layer.cornerRadius = 10
+        pieChartBlurEffect.clipsToBounds = true
+        barChartBlurEffect.layer.cornerRadius = 10
+        barChartBlurEffect.clipsToBounds = true
+        expButtonBlurEffect.layer.cornerRadius = 10
+        expButtonBlurEffect.clipsToBounds = true
+        incButtonBlurEffect.layer.cornerRadius = 10
+        incButtonBlurEffect.clipsToBounds = true
+        historyButtonBlurEffect.layer.cornerRadius = 10
+        historyButtonBlurEffect.clipsToBounds = true
     }
     
         
