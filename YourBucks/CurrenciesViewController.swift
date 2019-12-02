@@ -14,6 +14,13 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var baseCurrencyPickerView: UIPickerView!
     @IBOutlet weak var targetCurrencyPickerView: UIPickerView!
     
+    @IBOutlet weak var typeAmountBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var baseCurrencyBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var targetCurrencyBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var calculateButton: UIVisualEffectView!
+    @IBOutlet weak var resultBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var backButtonBlurEffect: UIVisualEffectView!
+    
     var myCurrency:[String] = []
     var myValue:[Double] = []
     var activeCurrency:Double = 0
@@ -36,6 +43,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        radiusEffect()
         loadJsonData()
     }
     
@@ -118,5 +126,20 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
            }.resume()
         }
+    }
+    
+    func radiusEffect(){
+        typeAmountBlurEffect.layer.cornerRadius = 10
+        typeAmountBlurEffect.clipsToBounds = true
+        resultBlurEffect.layer.cornerRadius = 10
+        resultBlurEffect.clipsToBounds = true
+        backButtonBlurEffect.layer.cornerRadius = 10
+        backButtonBlurEffect.clipsToBounds = true
+        baseCurrencyBlurEffect.layer.cornerRadius = 12
+        baseCurrencyBlurEffect.clipsToBounds = true
+        targetCurrencyBlurEffect.layer.cornerRadius = 12
+        targetCurrencyBlurEffect.clipsToBounds = true
+        calculateButton.layer.cornerRadius = 10
+        calculateButton.clipsToBounds = true
     }
 }

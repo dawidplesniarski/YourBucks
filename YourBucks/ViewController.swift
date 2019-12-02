@@ -105,15 +105,19 @@ class ViewController: UIViewController {
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
         
-        //barChart.drawValueAboveBarEnabled = false
-
+        barChart.legend.enabled = false
+        barChart.xAxis.drawGridLinesEnabled = false
+        /*
+        let labels = ["Pensja", "Premia", "Oszczednosci","Wplaty"]
+        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:labels)
+        barChart.xAxis.granularity = 1
+        */
         
-        barChart.chartDescription?.text = "\n\n\nPensja      Premia        Oszczędności         Wpłaty"
+        barChart.chartDescription?.text = "Pensja      Premia        Oszczędności         Wpłaty"
         sallaryDataEntry.yValues = [sallaryAmount]
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]
         paymentDataEntry.yValues = [paymentAmount]
-        //barChart.legend.isEnabled = false
         
         
         numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
@@ -222,9 +226,9 @@ class ViewController: UIViewController {
     func radiusEffect(){
         userBalanceBlurEffect.layer.cornerRadius = 10
         userBalanceBlurEffect.clipsToBounds = true
-        pieChartBlurEffect.layer.cornerRadius = 10
+        pieChartBlurEffect.layer.cornerRadius = 13
         pieChartBlurEffect.clipsToBounds = true
-        barChartBlurEffect.layer.cornerRadius = 10
+        barChartBlurEffect.layer.cornerRadius = 13
         barChartBlurEffect.clipsToBounds = true
         expButtonBlurEffect.layer.cornerRadius = 10
         expButtonBlurEffect.clipsToBounds = true
