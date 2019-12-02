@@ -14,6 +14,8 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var inputBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var doneButtonBlurEffect: UIVisualEffectView!
     
     var viewController = ViewController()
     let transactionsVC = TransactionsTableViewController()
