@@ -7,6 +7,15 @@
 //
 import UIKit
 
+
+
+extension String {
+  var isDigits: Bool {
+    guard !self.isEmpty else { return false }
+    return !self.contains { Double(String($0)) == nil }
+  }
+}
+
 class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
  
     @IBOutlet weak var currencyOutput: UITextField!
@@ -25,17 +34,10 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var myValue:[Double] = []
     var activeCurrency:Double = 0
     var currencyQuery:String = "PLN"
-    /*
-    struct Currencies {
-        let currencyName: String
-        let currencyAmount: Double
-        let baseCurrency: String
-        let currencyDate: Date
-    }
-    */
+
     
     @IBAction func calculateCurrency(_ sender: Any) {
-        if(currencyInput.text != ""){
+        if(currencyInput.text != "" && currencyInput.text?.isDigits == true){
         let userInput:Double = Double(currencyInput.text!)!
         currencyOutput.text = String(userInput * activeCurrency)
         }
@@ -68,7 +70,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == baseCurrencyPickerView{
             currencyQuery = myCurrency[row]
-            print("query: " + currencyQuery)
+            //print("query: " + currencyQuery)
             loadJsonData()
         }
         if pickerView == targetCurrencyPickerView{
