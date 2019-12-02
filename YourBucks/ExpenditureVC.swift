@@ -15,6 +15,10 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
     
+    @IBOutlet weak var inputBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var doneButtonBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var pickerBlurEffect: UIVisualEffectView!
+    
     var viewController = ViewController()
     let transactionsVC = TransactionsTableViewController()
     var transactionsCategory:String = ""
@@ -49,7 +53,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        radiusEffect()
         self.picker.delegate = self
         self.picker.dataSource = self
         
@@ -82,5 +86,14 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         // The parameter named row and component represents what was selected.
         selectedCategory = row
         print(selectedCategory) // ustawiam zmienną selectedCategory na numer wiersza w pickerView
+    }
+    
+    func radiusEffect(){
+        inputBlurEffect.layer.cornerRadius = 10
+        inputBlurEffect.clipsToBounds = true
+        pickerBlurEffect.layer.cornerRadius = 12
+        pickerBlurEffect.clipsToBounds = true
+        doneButtonBlurEffect.layer.cornerRadius = 10
+        doneButtonBlurEffect.clipsToBounds = true
     }
 }

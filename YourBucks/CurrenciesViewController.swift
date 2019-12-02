@@ -7,6 +7,15 @@
 //
 import UIKit
 
+
+
+extension String {
+  var isDigits: Bool {
+    guard !self.isEmpty else { return false }
+    return !self.contains { Double(String($0)) == nil }
+  }
+}
+
 class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
  
     @IBOutlet weak var currencyOutput: UITextField!
@@ -14,21 +23,21 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var baseCurrencyPickerView: UIPickerView!
     @IBOutlet weak var targetCurrencyPickerView: UIPickerView!
     
+    @IBOutlet weak var typeAmountBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var baseCurrencyBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var targetCurrencyBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var calculateButton: UIVisualEffectView!
+    @IBOutlet weak var resultBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var backButtonBlurEffect: UIVisualEffectView!
+    
     var myCurrency:[String] = []
     var myValue:[Double] = []
     var activeCurrency:Double = 0
     var currencyQuery:String = "PLN"
-    /*
-    struct Currencies {
-        let currencyName: String
-        let currencyAmount: Double
-        let baseCurrency: String
-        let currencyDate: Date
-    }
-    */
+
     
     @IBAction func calculateCurrency(_ sender: Any) {
-        if(currencyInput.text != ""){
+        if(currencyInput.text != "" && currencyInput.text?.isDigits == true){
         let userInput:Double = Double(currencyInput.text!)!
         currencyOutput.text = String(userInput * activeCurrency)
         }
@@ -36,6 +45,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        radiusEffect()
         loadJsonData()
     }
     
@@ -60,7 +70,7 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == baseCurrencyPickerView{
             currencyQuery = myCurrency[row]
-            print("query: " + currencyQuery)
+            //print("query: " + currencyQuery)
             loadJsonData()
         }
         if pickerView == targetCurrencyPickerView{
@@ -118,5 +128,20 @@ class CurrenciesViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
            }.resume()
         }
+    }
+    
+    func radiusEffect(){
+        typeAmountBlurEffect.layer.cornerRadius = 10
+        typeAmountBlurEffect.clipsToBounds = true
+        resultBlurEffect.layer.cornerRadius = 10
+        resultBlurEffect.clipsToBounds = true
+        backButtonBlurEffect.layer.cornerRadius = 10
+        backButtonBlurEffect.clipsToBounds = true
+        baseCurrencyBlurEffect.layer.cornerRadius = 12
+        baseCurrencyBlurEffect.clipsToBounds = true
+        targetCurrencyBlurEffect.layer.cornerRadius = 12
+        targetCurrencyBlurEffect.clipsToBounds = true
+        calculateButton.layer.cornerRadius = 10
+        calculateButton.clipsToBounds = true
     }
 }

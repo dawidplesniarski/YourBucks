@@ -59,8 +59,8 @@ class ViewController: UIViewController {
     var foodDataEntry = PieChartDataEntry(value: 0.0)
     var healthDataEntry = PieChartDataEntry(value: 0.0)
     var hygieneDataEntry = PieChartDataEntry(value: 0.0) // deklaruje kategorie wydatków
-
-
+    
+    let centerCircleText = NSMutableAttributedString()
 
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
@@ -80,9 +80,10 @@ class ViewController: UIViewController {
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
-        pieChart.chartDescription?.text = "Wydatki"
         pieChart.transparentCircleRadiusPercent = 0.0
         pieChart.holeColor = UIColor(red: 216, green: 189, blue: 166, alpha: 0)
+        pieChart.centerText = "Wydatki"
+
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
         
@@ -104,10 +105,15 @@ class ViewController: UIViewController {
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
         
-        //barChart.drawValueAboveBarEnabled = false
-
+        barChart.legend.enabled = false
+        barChart.xAxis.drawGridLinesEnabled = false
+        /*
+        let labels = ["Pensja", "Premia", "Oszczednosci","Wplaty"]
+        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:labels)
+        barChart.xAxis.granularity = 1
+        */
         
-        barChart.chartDescription?.text = "\n\n\nPensja      Premia        Oszczędności         Wpłaty"
+        barChart.chartDescription?.text = "Pensja      Premia        Oszczędności         Wpłaty"
         sallaryDataEntry.yValues = [sallaryAmount]
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]
@@ -220,9 +226,9 @@ class ViewController: UIViewController {
     func radiusEffect(){
         userBalanceBlurEffect.layer.cornerRadius = 10
         userBalanceBlurEffect.clipsToBounds = true
-        pieChartBlurEffect.layer.cornerRadius = 10
+        pieChartBlurEffect.layer.cornerRadius = 13
         pieChartBlurEffect.clipsToBounds = true
-        barChartBlurEffect.layer.cornerRadius = 10
+        barChartBlurEffect.layer.cornerRadius = 13
         barChartBlurEffect.clipsToBounds = true
         expButtonBlurEffect.layer.cornerRadius = 10
         expButtonBlurEffect.clipsToBounds = true

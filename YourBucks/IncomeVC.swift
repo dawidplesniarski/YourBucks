@@ -13,6 +13,9 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var inputBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var pickerBlurEffect: UIVisualEffectView!
+    @IBOutlet weak var doneButtonBlurEffect: UIVisualEffectView!
     
     var viewController = ViewController()
     var transactionsCategory:String = ""
@@ -42,7 +45,7 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        radiusEffect()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
@@ -78,6 +81,13 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         print(selectedCategory) // ustawiam zmienną selectedCategory na numer wiersza w pickerView
     }
     
-    
-    
+    func radiusEffect(){
+        inputBlurEffect.layer.cornerRadius = 10
+        inputBlurEffect.clipsToBounds = true
+        pickerBlurEffect.layer.cornerRadius = 12
+        pickerBlurEffect.clipsToBounds = true
+        doneButtonBlurEffect.layer.cornerRadius = 10
+        doneButtonBlurEffect.clipsToBounds = true
+    }
+
 }
