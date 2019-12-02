@@ -59,8 +59,8 @@ class ViewController: UIViewController {
     var foodDataEntry = PieChartDataEntry(value: 0.0)
     var healthDataEntry = PieChartDataEntry(value: 0.0)
     var hygieneDataEntry = PieChartDataEntry(value: 0.0) // deklaruje kategorie wydatków
-
-
+    
+    let centerCircleText = NSMutableAttributedString()
 
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
@@ -80,9 +80,10 @@ class ViewController: UIViewController {
         
         userBalanceTextField.text = String(userBalance) + " zł"
         
-        pieChart.chartDescription?.text = "Wydatki"
         pieChart.transparentCircleRadiusPercent = 0.0
         pieChart.holeColor = UIColor(red: 216, green: 189, blue: 166, alpha: 0)
+        pieChart.centerText = "Wydatki"
+
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
         
@@ -112,6 +113,7 @@ class ViewController: UIViewController {
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]
         paymentDataEntry.yValues = [paymentAmount]
+        //barChart.legend.isEnabled = false
         
         
         numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
