@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         pieChart.transparentCircleRadiusPercent = 0.0
         pieChart.holeColor = UIColor(red: 216, green: 189, blue: 166, alpha: 0)
         pieChart.centerText = "Wydatki"
+        pieChart.legend.textColor = UIColor(named: "black_white")!
 
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
