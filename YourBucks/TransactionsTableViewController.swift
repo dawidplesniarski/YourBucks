@@ -14,13 +14,21 @@ class TransactionsTableViewController: UITableViewController {
     var tableTransactions = [String]()
     let viewController = ViewController()
     let backgroundImage = UIImage(named: "light_city_background.png")
+    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
 
+    /*
+   
+     */
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.addSubview(blurEffectView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
 
     }
