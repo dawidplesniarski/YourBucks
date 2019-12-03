@@ -23,7 +23,7 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let amount = Double(amountTextField.text!)
-        
+        if(amountTextField.text != ""){
         let vc = segue.destination as! ViewController
 
         if(selectedCategory == 0){transactionsCategory = "Pensja"; vc.sallaryAmount += amount ?? 0}
@@ -34,7 +34,7 @@ class IncomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         vc.userBalance += amount ?? 0
         
         vc.transactions.append("Typ: dochód\nKategoria: " + transactionsCategory + "\nKwota: " + String(format:"%.2f", amount ?? 0) + " pln")
-
+        }
     }
     
     var pickerData: [String] = [String]()

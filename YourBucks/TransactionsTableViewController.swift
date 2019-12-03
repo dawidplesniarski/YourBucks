@@ -10,29 +10,17 @@ import UIKit
 
 class TransactionsTableViewController: UITableViewController {
     
-    /*
-    //var transactions:[(type: String, category: String, amount: Double)]?
     
-    var transactionCategory:String = ""
-    var transcactionAmount:Double = 0.0
-    var completeTransaction:String = ""
-    
-    //var transactions = [String]()
-    var transactions = ["test","test1","test2","test3"]
-    
-    func expAdded(){
-        completeTransaction = "Typ: Wydatek Kategoria: "+transactionCategory+" Kwota: "+String(transcactionAmount)
-        transactions.append(completeTransaction)
-        print(completeTransaction)
-    }
-     */
     var tableTransactions = [String]()
-    
     let viewController = ViewController()
+    let backgroundImage = UIImage(named: "light_city_background.png")
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(tableTransactions)
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
 
     }
