@@ -108,11 +108,10 @@ class ViewController: UIViewController {
         
         barChart.legend.enabled = false
         barChart.xAxis.drawGridLinesEnabled = false
-        /*
-        let labels = ["Pensja", "Premia", "Oszczednosci","Wplaty"]
-        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:labels)
-        barChart.xAxis.granularity = 1
-        */
+        barChart.xAxis.drawLabelsEnabled = false
+        barChart.pinchZoomEnabled = false
+        barChart.animate(yAxisDuration: 1.5)
+        
         
         barChart.chartDescription?.text = "Pensja      Premia        Oszczędności         Wpłaty"
         sallaryDataEntry.yValues = [sallaryAmount]
@@ -123,7 +122,6 @@ class ViewController: UIViewController {
         
         numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
         
-        //print("1 widok ",carAmount)
         updateChartData()   // uaktualniam wykres
     }
     
