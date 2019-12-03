@@ -28,7 +28,7 @@ class ExpenditureVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         let amount = Double(amountTextField.text!)
 
-        if segue.identifier == "myGoingBackSegue"{
+        if (segue.identifier == "myGoingBackSegue" && amountTextField.text != ""){
             
             print("going back segue called")
             

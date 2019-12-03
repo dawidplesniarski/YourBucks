@@ -10,29 +10,25 @@ import UIKit
 
 class TransactionsTableViewController: UITableViewController {
     
-    /*
-    //var transactions:[(type: String, category: String, amount: Double)]?
     
-    var transactionCategory:String = ""
-    var transcactionAmount:Double = 0.0
-    var completeTransaction:String = ""
-    
-    //var transactions = [String]()
-    var transactions = ["test","test1","test2","test3"]
-    
-    func expAdded(){
-        completeTransaction = "Typ: Wydatek Kategoria: "+transactionCategory+" Kwota: "+String(transcactionAmount)
-        transactions.append(completeTransaction)
-        print(completeTransaction)
-    }
-     */
     var tableTransactions = [String]()
-    
     let viewController = ViewController()
+    let backgroundImage = UIImage(named: "light_city_background.png")
+    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+
+    /*
+   
+     */
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(tableTransactions)
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.addSubview(blurEffectView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
 
     }
@@ -49,12 +45,9 @@ class TransactionsTableViewController: UITableViewController {
         return tableTransactions.count
     }
     
-
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        
+        cell.backgroundColor = UIColor.clear
         cell.textLabel!.numberOfLines = 3
         
         cell.textLabel?.text = tableTransactions[indexPath.row]
