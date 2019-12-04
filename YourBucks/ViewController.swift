@@ -110,10 +110,11 @@ class ViewController: UIViewController {
         barChart.xAxis.drawGridLinesEnabled = false
         barChart.xAxis.drawLabelsEnabled = false
         barChart.pinchZoomEnabled = false
+        barChart.doubleTapToZoomEnabled = false
         barChart.animate(yAxisDuration: 1.5)
         
         
-        barChart.chartDescription?.text = "Pensja      Premia        Oszczędności         Wpłaty"
+        barChart.chartDescription?.text = ""
         sallaryDataEntry.yValues = [sallaryAmount]
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]
