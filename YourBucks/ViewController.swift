@@ -84,6 +84,8 @@ class ViewController: UIViewController {
         pieChart.holeColor = UIColor(red: 216, green: 189, blue: 166, alpha: 0)
         pieChart.centerText = "Wydatki"
         pieChart.legend.textColor = UIColor(named: "black_white")!
+        barChart.leftAxis.labelTextColor = UIColor(named: "black_white")!
+        barChart.rightAxis.labelTextColor = UIColor(named: "black_white")!
 
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
