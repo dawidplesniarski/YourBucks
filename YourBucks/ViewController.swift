@@ -64,7 +64,13 @@ class ViewController: UIViewController {
 
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
-    var numberOfDownloadBarDataEntries = [BarChartDataEntry]()
+    //var numberOfDownloadBarDataEntries = [BarChartDataEntry]()
+    var sallaryData = [BarChartDataEntry]()
+    var bonusData = [BarChartDataEntry]()
+    var savingsData = [BarChartDataEntry]()
+    var paymentData = [BarChartDataEntry]()
+
+    
     
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {   // Funkcja przekazuje wartosci zmiennych dwukierunkowo
         //print(transactions)
@@ -83,7 +89,12 @@ class ViewController: UIViewController {
         pieChart.transparentCircleRadiusPercent = 0.0
         pieChart.holeColor = UIColor(red: 216, green: 189, blue: 166, alpha: 0)
         pieChart.centerText = "Wydatki"
-
+        pieChart.legend.textColor = UIColor(named: "black_white")!
+        barChart.leftAxis.labelTextColor = UIColor(named: "black_white")!
+        barChart.rightAxis.labelTextColor = UIColor(named: "black_white")!
+        barChart.xAxis.labelTextColor = UIColor(named: "black_white")!
+        //barChart.barData?.setValueTextColor = UIColor(named: "black_white")!
+        
         carDataEntry.value = carAmount
         carDataEntry.label = "Samochód"
         
@@ -105,24 +116,27 @@ class ViewController: UIViewController {
         
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
         
-        barChart.legend.enabled = false
+        //barChart.legend.enabled = false
         barChart.xAxis.drawGridLinesEnabled = false
-        /*
-        let labels = ["Pensja", "Premia", "Oszczednosci","Wplaty"]
-        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:labels)
-        barChart.xAxis.granularity = 1
-        */
+        barChart.xAxis.drawLabelsEnabled = false
+        barChart.pinchZoomEnabled = false
+        barChart.doubleTapToZoomEnabled = false
+        barChart.animate(yAxisDuration: 1.5)
         
-        barChart.chartDescription?.text = "Pensja      Premia        Oszczędności         Wpłaty"
+        
+        barChart.chartDescription?.text = ""
         sallaryDataEntry.yValues = [sallaryAmount]
         bonusDataEntry.yValues = [bonusAmount]
         savingsDataEntry.yValues = [savingsAmount]
         paymentDataEntry.yValues = [paymentAmount]
         
         
-        numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
+        //numberOfDownloadBarDataEntries = [sallaryDataEntry,bonusDataEntry,savingsDataEntry,paymentDataEntry]
+        sallaryData = [sallaryDataEntry]
+        bonusData = [bonusDataEntry]
+        paymentData = [paymentDataEntry]
+        savingsData = [savingsDataEntry]
         
-        //print("1 widok ",carAmount)
         updateChartData()   // uaktualniam wykres
     }
     
@@ -130,15 +144,32 @@ class ViewController: UIViewController {
         let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let barChartDataSet = BarChartDataSet(entries: numberOfDownloadBarDataEntries, label: nil)
-        let barChartData = BarChartData(dataSet: barChartDataSet)
+        let sallaryChartDataSet = BarChartDataSet(entries: sallaryData, label: "Pensja")
+        let bonusChartDataSet = BarChartDataSet(entries: bonusData, label: "Premia")
+        let savingsChartDataSet = BarChartDataSet(entries: savingsData, label: "Oszczednosci")
+        let paymentChartDataSet = BarChartDataSet(entries: paymentData, label: "Wplaty")
+        let barChartData = BarChartData(dataSets: [sallaryChartDataSet, bonusChartDataSet, savingsChartDataSet, paymentChartDataSet])
+        /*
+         let incomeDataSet = BarChartDataSet(values: incomeAmountValues, label: "Budget")
+            let expensesDataSet = BarChartDataSet(values: expensesValues, label: "Expenses")
+            let data = BarChartData(dataSets: [incomeDataSet,expensesDataSet])
+         */
         
         let colors = [UIColor(named:"pastel_pink"),UIColor(named:"azure"),UIColor(named:"orange"),UIColor(named:"light_purple"),UIColor(named:"pastel_yellow"),UIColor(named:"pastel_green")]
         
-        let barColors = [UIColor(named:"pastel_pink"),UIColor(named:"orange"),UIColor(named:"pastel_yellow"),UIColor(named:"pastel_green")]
+        let sallaryBarColor = [UIColor(named:"pastel_pink")]
+        let bonusBarColor = [UIColor(named:"orange")]
+        let savingBarColor = [UIColor(named: "pastel_yellow")]
+        let paymentBarColor = [UIColor(named: "pastel_green")]
         
         chartDataSet.colors = colors as! [NSUIColor]
-        barChartDataSet.colors = barColors as! [NSUIColor]
+        //barChartDataSet.colors = barColors as! [NSUIColor]
+        sallaryChartDataSet.colors = sallaryBarColor as! [NSUIColor]
+        bonusChartDataSet.colors = bonusBarColor as! [NSUIColor]
+        savingsChartDataSet.colors = savingBarColor as! [NSUIColor]
+        paymentChartDataSet.colors = paymentBarColor as! [NSUIColor]
+
+        
 
         
         pieChart.data = chartData
