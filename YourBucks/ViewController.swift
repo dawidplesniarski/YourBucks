@@ -93,6 +93,7 @@ class ViewController: UIViewController {
         barChart.leftAxis.labelTextColor = UIColor(named: "black_white")!
         barChart.rightAxis.labelTextColor = UIColor(named: "black_white")!
         barChart.xAxis.labelTextColor = UIColor(named: "black_white")!
+        barChart.legend.textColor = UIColor(named: "black_white")!
         //barChart.barData?.setValueTextColor = UIColor(named: "black_white")!
         
         carDataEntry.value = carAmount
