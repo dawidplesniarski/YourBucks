@@ -118,6 +118,7 @@ class ViewController: UIViewController {
         numberOfDownloadsDataEntries = [carDataEntry,houseHoldDataEntry,billsDataEntry,foodDataEntry,healthDataEntry,hygieneDataEntry]  //przypisuje liczbę kategorii znajdujących się w wykresach
         
         //barChart.legend.enabled = false
+        barChart.legend.textColor = UIColor(named: "black_white")!
         barChart.xAxis.drawGridLinesEnabled = false
         barChart.xAxis.drawLabelsEnabled = false
         barChart.pinchZoomEnabled = false
@@ -172,7 +173,6 @@ class ViewController: UIViewController {
 
         
 
-        
         pieChart.data = chartData
         barChart.data = barChartData
     }

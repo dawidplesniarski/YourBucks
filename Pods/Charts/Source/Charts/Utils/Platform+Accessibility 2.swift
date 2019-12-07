@@ -1,6 +1,5 @@
 import Foundation
 
-#if os(iOS) || os(tvOS)
 #if canImport(UIKit)
     import UIKit
 #endif
@@ -94,7 +93,6 @@ extension NSUIView
 #endif
 
 #if os(OSX)
-
 #if canImport(AppKit)
 import AppKit
 #endif
