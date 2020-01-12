@@ -12,6 +12,14 @@
 import Foundation
 import CoreGraphics
 
+
+#if canImport(UIKit)
+    import UIKit
+#endif
+
+#if canImport(Cocoa)
+import Cocoa
+#endif
 open class YAxisRendererRadarChart: YAxisRenderer
 {
     private weak var chart: RadarChartView?
@@ -210,6 +218,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
             else { return }
         
         var limitLines = yAxis.limitLines
+
         
         if limitLines.count == 0
         {

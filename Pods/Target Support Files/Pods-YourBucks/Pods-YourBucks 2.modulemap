@@ -1,0 +1,6 @@
+framework module Pods_YourBucks {
+  umbrella header "Pods-YourBucks-umbrella.h"
+
+  export *
+  module * { export * }
+}
