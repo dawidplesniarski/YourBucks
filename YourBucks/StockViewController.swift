@@ -50,6 +50,11 @@ class StockViewController: UIViewController {
 
     final let url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=NUFI25GZVGUHNMLL"
     
+    var openData:[String] = []
+    var highData:[String] = []
+    var lowData:[String] = []
+    var closeData:[String] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +62,7 @@ class StockViewController: UIViewController {
     }
     
     func loadURL() {
+    
       let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=NUFI25GZVGUHNMLL")
       URLSession.shared.dataTask(with: stocksURL!) { (data, response, error) in
         if let error = error {
@@ -66,7 +72,12 @@ class StockViewController: UIViewController {
         do {
           let response = try JSONDecoder().decode(Response.self, from: data!)
           response.timeSeries5Min.forEach({ (keyValue) in
-            print(keyValue)
+            //print(keyValue)
+            //print(keyValue.value.the1Open)
+            self.openData.append(keyValue.value.the1Open)
+            //self.closeData.append(keyValue.value.the4Close)
+            //self.lowData.append(keyValue.value.the3Low)
+            //self.highData.append(keyValue.value.the2High)
           })
         } catch {
           print(error)
