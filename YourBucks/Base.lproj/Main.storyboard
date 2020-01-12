@@ -86,6 +86,22 @@
             </objects>
             <point key="canvasLocation" x="48" y="-690"/>
         </scene>
+        <!--Stock View Controller-->
+        <scene sceneID="Adk-94-Zfr">
+            <objects>
+                <viewController id="Eay-md-KGL" customClass="StockViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V0k-Gf-viG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="VJr-qt-G2f"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZIb-wj-T9h"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siK-GF-N7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="-690"/>
+        </scene>
         <!--Currencies View Controller-->
         <scene sceneID="vE8-GU-Jaa">
             <objects>
@@ -429,6 +445,14 @@
                                 </view>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RM-nu-BRc">
+                                <rect key="frame" x="348" y="111" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Eay-md-KGL" kind="show" id="wdr-ES-qJn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
