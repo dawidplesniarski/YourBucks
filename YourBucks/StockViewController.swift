@@ -58,8 +58,8 @@ class StockViewController: UIViewController {
     var openData:[Double] = []
     var highData:[Double] = []
     var lowData:[Double] = []
-    var closeData:[Double] = []
-    var volumeData:[Double] = []
+    var closeData:[Double] = [] //tablice przechowujące informacje giełdowe
+    //var volumeData:[Double] = []
  
 
     override func viewDidLoad() {
@@ -75,21 +75,22 @@ class StockViewController: UIViewController {
         candleChartView.setScaleEnabled(true)
         candleChartView.maxVisibleCount = 200
         candleChartView.pinchZoomEnabled = true
-               
-        candleChartView.legend.horizontalAlignment = .right
-        candleChartView.legend.verticalAlignment = .top
-        candleChartView.legend.orientation = .vertical
+        candleChartView.leftAxis.labelTextColor = .white
+        candleChartView.rightAxis.labelTextColor = .white
+        candleChartView.xAxis.labelTextColor = .white
+        candleChartView.legend.textColor = .white
         candleChartView.legend.drawInside = false
         loadURL()
     }
     
-    func updateChartData() {
+    func updateChartData() {    //uaktualniam wykres
         DispatchQueue.main.async {
             self.setDataCount()
         }
     }
     
-    func setDataCount() {
+    
+    func setDataCount() {   //przypisuje wartosci giełdowe
         let yVals1 = (0..<(openData.count)).map { (i) -> CandleChartDataEntry in
         //let val = volumeData[i]
         let high = highData[i]
@@ -121,7 +122,7 @@ class StockViewController: UIViewController {
     
     func loadURL() {
     
-      let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=NUFI25GZVGUHNMLL")
+      let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=5min&apikey=NUFI25GZVGUHNMLL")
       URLSession.shared.dataTask(with: stocksURL!) { (data, response, error) in
         if let error = error {
           print(error)
