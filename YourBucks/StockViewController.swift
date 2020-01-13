@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 struct Response: Codable {
     let metaData: MetaData
@@ -48,18 +49,77 @@ struct TimeSeries5Min: Codable {
 }
 class StockViewController: UIViewController {
 
-    final let url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=NUFI25GZVGUHNMLL"
     
-    var openData:[String] = []
-    var highData:[String] = []
-    var lowData:[String] = []
-    var closeData:[String] = []
+    @IBAction func buttontapped(_ sender: Any) {
+        updateChartData()
+        for low in lowData{
+            print(low)
+        }
+    }
+    @IBOutlet weak var candleChartView: CandleStickChartView!
+    var openData:[Double] = []
+    var highData:[Double] = []
+    var lowData:[Double] = []
+    var closeData:[Double] = []
+    var volumeData:[Double] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        
+        self.title = "Candle Stick Chart"
+        
+    
+        candleChartView.delegate = self as? ChartViewDelegate
+               
+               candleChartView.chartDescription?.enabled = false
+               
+               candleChartView.dragEnabled = false
+               candleChartView.setScaleEnabled(true)
+               candleChartView.maxVisibleCount = 200
+               candleChartView.pinchZoomEnabled = true
+               
+               candleChartView.legend.horizontalAlignment = .right
+               candleChartView.legend.verticalAlignment = .top
+               candleChartView.legend.orientation = .vertical
+               candleChartView.legend.drawInside = false
         loadURL()
     }
+    
+    func updateChartData() {
+        setDataCount()
+    }
+    
+    func setDataCount() {
+        let yVals1 = (0..<(openData.count)/10).map { (i) -> CandleChartDataEntry in
+        let val = volumeData[i]
+        let high = highData[i]
+        let low = lowData[i]
+        let open = openData[i]
+        let close = closeData[i]
+        let even = i % 2 == 0
+        
+        return CandleChartDataEntry(x: Double(i), shadowH: val + high, shadowL: val - low, open: even ? val + open : val - open, close: even ? val - close : val + close, icon: UIImage(named: "icon")!)
+        }
+        
+        let set1 = CandleChartDataSet(entries: yVals1, label: "Data Set")
+        set1.axisDependency = .left
+        set1.setColor(UIColor(white: 80/255, alpha: 1))
+        set1.drawIconsEnabled = false
+        set1.shadowColor = .darkGray
+        set1.shadowWidth = 0.7
+        set1.decreasingColor = .red
+        set1.decreasingFilled = true
+        set1.increasingColor = UIColor(red: 122/255, green: 242/255, blue: 84/255, alpha: 1)
+        set1.increasingFilled = false
+        set1.neutralColor = .blue
+        
+        let data = CandleChartData(dataSet: set1)
+        candleChartView.data = data
+    }
+
     
     func loadURL() {
     
@@ -74,15 +134,16 @@ class StockViewController: UIViewController {
           response.timeSeries5Min.forEach({ (keyValue) in
             //print(keyValue)
             //print(keyValue.value.the1Open)
-            self.openData.append(keyValue.value.the1Open)
-            //self.closeData.append(keyValue.value.the4Close)
-            //self.lowData.append(keyValue.value.the3Low)
-            //self.highData.append(keyValue.value.the2High)
+            self.openData.append(Double(keyValue.value.the1Open)!)
+            self.closeData.append(Double(keyValue.value.the4Close)!)
+            self.lowData.append(Double(keyValue.value.the3Low)!)
+            self.highData.append(Double(keyValue.value.the2High)!)
+            self.volumeData.append(Double(keyValue.value.the5Volume)!)
           })
         } catch {
           print(error)
         }
-      }.resume()
+        self.updateChartData()
+        }.resume()
     }
-
 }
