@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,14 +94,34 @@
                     <view key="view" contentMode="scaleToFill" id="V0k-Gf-viG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2T-m8-5bR" customClass="CandleStickChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="69" width="374" height="739"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-7p-yQC">
+                                <rect key="frame" x="181" y="31" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttontapped:" destination="Eay-md-KGL" eventType="primaryActionTriggered" id="dO6-P3-lIS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="candle-chart-background"/>
                         <viewLayoutGuide key="safeArea" id="VJr-qt-G2f"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZIb-wj-T9h"/>
+                    <connections>
+                        <outlet property="candleChartView" destination="V2T-m8-5bR" id="kuf-Tf-OJD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siK-GF-N7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="-690"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="-690.40178571428567"/>
         </scene>
         <!--Currencies View Controller-->
         <scene sceneID="vE8-GU-Jaa">
@@ -445,10 +466,10 @@
                                 </view>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RM-nu-BRc">
-                                <rect key="frame" x="348" y="111" width="46" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RM-nu-BRc">
+                                <rect key="frame" x="73" y="49" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="stock_icon"/>
                                 <connections>
                                     <segue destination="Eay-md-KGL" kind="show" id="wdr-ES-qJn"/>
                                 </connections>
@@ -469,6 +490,7 @@
                         <outlet property="userBalanceTextField" destination="dZP-fb-54d" id="ef8-0I-Gfj"/>
                         <outletCollection property="MenuButtons" destination="I7Y-Py-1cs" collectionClass="NSMutableArray" id="EhV-wD-f7L"/>
                         <outletCollection property="MenuButtons" destination="NcL-lK-7v7" collectionClass="NSMutableArray" id="RhL-zs-k3I"/>
+                        <outletCollection property="MenuButtons" destination="1RM-nu-BRc" collectionClass="NSMutableArray" id="8Nd-a1-grJ"/>
                         <segue destination="gJh-SB-AU8" kind="show" identifier="VcToTable" id="m8W-Fp-Qj7"/>
                     </connections>
                 </viewController>
@@ -669,5 +691,9 @@
         <image name="light_city_background" width="540" height="960"/>
         <image name="menu_icon" width="32" height="32"/>
         <image name="settings_icon" width="32" height="32"/>
+        <image name="stock_icon" width="32" height="32"/>
+        <namedColor name="candle-chart-background">
+            <color red="0.14299303756476689" green="0.14299303756476689" blue="0.14299303756476689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
