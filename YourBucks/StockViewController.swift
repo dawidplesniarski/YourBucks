@@ -52,11 +52,9 @@ class StockViewController: UIViewController {
     
     @IBAction func buttontapped(_ sender: Any) {
         updateChartData()
-        for low in openData{
-            print(low)
-        }
     }
     @IBOutlet weak var candleChartView: CandleStickChartView!
+    
     var openData:[Double] = []
     var highData:[Double] = []
     var lowData:[Double] = []
@@ -71,22 +69,24 @@ class StockViewController: UIViewController {
         
         candleChartView.delegate = self as? ChartViewDelegate
                
-               candleChartView.chartDescription?.enabled = false
+        candleChartView.chartDescription?.enabled = false
                
-               candleChartView.dragEnabled = false
-               candleChartView.setScaleEnabled(true)
-               candleChartView.maxVisibleCount = 200
-               candleChartView.pinchZoomEnabled = true
+        candleChartView.dragEnabled = false
+        candleChartView.setScaleEnabled(true)
+        candleChartView.maxVisibleCount = 200
+        candleChartView.pinchZoomEnabled = true
                
-               candleChartView.legend.horizontalAlignment = .right
-               candleChartView.legend.verticalAlignment = .top
-               candleChartView.legend.orientation = .vertical
-               candleChartView.legend.drawInside = false
+        candleChartView.legend.horizontalAlignment = .right
+        candleChartView.legend.verticalAlignment = .top
+        candleChartView.legend.orientation = .vertical
+        candleChartView.legend.drawInside = false
         loadURL()
     }
     
     func updateChartData() {
-        self.setDataCount()
+        DispatchQueue.main.async {
+            self.setDataCount()
+        }
     }
     
     func setDataCount() {
@@ -107,10 +107,11 @@ class StockViewController: UIViewController {
         set1.drawIconsEnabled = false
         set1.shadowColor = .darkGray
         set1.shadowWidth = 0.7
+        set1.drawValuesEnabled = false
         set1.decreasingColor = .red
         set1.decreasingFilled = true
         set1.increasingColor = UIColor(red: 122/255, green: 242/255, blue: 84/255, alpha: 1)
-        set1.increasingFilled = false
+        set1.increasingFilled = true
         set1.neutralColor = .blue
         
         let data = CandleChartData(dataSet: set1)
@@ -129,13 +130,11 @@ class StockViewController: UIViewController {
         do {
           let response = try JSONDecoder().decode(Response.self, from: data!)
           response.timeSeries5Min.forEach({ (keyValue) in
-            //print(keyValue)
-            //print(keyValue.value.the1Open)
-            self.openData.append(Double(keyValue.value.the1Open)!)
-            self.closeData.append(Double(keyValue.value.the4Close)!)
-            self.lowData.append(Double(keyValue.value.the3Low)!)
-            self.highData.append(Double(keyValue.value.the2High)!)
-            self.volumeData.append(Double(keyValue.value.the5Volume)!)
+                self.openData.append(Double(keyValue.value.the1Open)!)
+                self.closeData.append(Double(keyValue.value.the4Close)!)
+                self.lowData.append(Double(keyValue.value.the3Low)!)
+                self.highData.append(Double(keyValue.value.the2High)!)
+                //self.volumeData.append(Double(keyValue.value.the5Volume)!)
           })
         } catch {
           print(error)

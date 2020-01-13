@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,18 +98,18 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2T-m8-5bR" customClass="CandleStickChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="69" width="374" height="739"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-7p-yQC">
-                                <rect key="frame" x="184" y="31" width="46" height="30"/>
+                                <rect key="frame" x="181" y="31" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="buttontapped:" destination="Eay-md-KGL" eventType="primaryActionTriggered" id="dO6-P3-lIS"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="candle-chart-background"/>
                         <viewLayoutGuide key="safeArea" id="VJr-qt-G2f"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZIb-wj-T9h"/>
@@ -687,5 +688,8 @@
         <image name="light_city_background" width="540" height="960"/>
         <image name="menu_icon" width="32" height="32"/>
         <image name="settings_icon" width="32" height="32"/>
+        <namedColor name="candle-chart-background">
+            <color red="0.14299303756476689" green="0.14299303756476689" blue="0.14299303756476689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
