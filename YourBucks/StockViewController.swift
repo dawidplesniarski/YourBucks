@@ -52,7 +52,7 @@ class StockViewController: UIViewController {
     
     @IBAction func buttontapped(_ sender: Any) {
         updateChartData()
-        for low in lowData{
+        for low in openData{
             print(low)
         }
     }
@@ -62,16 +62,13 @@ class StockViewController: UIViewController {
     var lowData:[Double] = []
     var closeData:[Double] = []
     var volumeData:[Double] = []
-    
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-        
+
         self.title = "Candle Stick Chart"
         
-    
         candleChartView.delegate = self as? ChartViewDelegate
                
                candleChartView.chartDescription?.enabled = false
@@ -89,19 +86,19 @@ class StockViewController: UIViewController {
     }
     
     func updateChartData() {
-        setDataCount()
+        self.setDataCount()
     }
     
     func setDataCount() {
-        let yVals1 = (0..<(openData.count)/10).map { (i) -> CandleChartDataEntry in
-        let val = volumeData[i]
+        let yVals1 = (0..<(openData.count)).map { (i) -> CandleChartDataEntry in
+        //let val = volumeData[i]
         let high = highData[i]
         let low = lowData[i]
         let open = openData[i]
         let close = closeData[i]
-        let even = i % 2 == 0
+        //let even = i % 2 == 0
         
-        return CandleChartDataEntry(x: Double(i), shadowH: val + high, shadowL: val - low, open: even ? val + open : val - open, close: even ? val - close : val + close, icon: UIImage(named: "icon")!)
+        return CandleChartDataEntry(x: Double(i), shadowH: high, shadowL: low, open: open, close: close, icon: UIImage(named: "icon")!)
         }
         
         let set1 = CandleChartDataSet(entries: yVals1, label: "Data Set")
