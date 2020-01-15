@@ -702,10 +702,10 @@
             </objects>
             <point key="canvasLocation" x="1042.96875" y="19.765739385065885"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Stock View Controller-->
         <scene sceneID="Zvy-id-owi">
             <objects>
-                <viewController id="PA0-Wj-I6J" sceneMemberID="viewController">
+                <viewController id="PA0-Wj-I6J" customClass="SelectStockViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IUy-3X-k5v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -747,6 +747,9 @@
                                             <state key="normal" title="Gotowe">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="buttonTapped:" destination="PA0-Wj-I6J" eventType="primaryActionTriggered" id="frw-zK-FCQ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -757,6 +760,11 @@
                         <viewLayoutGuide key="safeArea" id="XlD-NX-bOm"/>
                     </view>
                     <navigationItem key="navigationItem" id="1q7-9k-hB0"/>
+                    <connections>
+                        <outlet property="buttonBlurEffect" destination="Yfs-8x-dxq" id="aNG-1R-vWJ"/>
+                        <outlet property="pickerBlurEffect" destination="rHg-uU-lO3" id="6PQ-Cs-BJm"/>
+                        <outlet property="pickerView" destination="FUZ-VB-Lif" id="r0e-UF-X8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0V-mE-akO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
