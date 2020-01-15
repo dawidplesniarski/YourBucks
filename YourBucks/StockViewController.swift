@@ -76,15 +76,10 @@ class StockViewController: UIViewController {
     var closeData:[Double] = [] //tablice przechowujące informacje giełdowe
  
     
-    
-    
-    
-    
     override var shouldAutorotate: Bool {
         return true
     }
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
