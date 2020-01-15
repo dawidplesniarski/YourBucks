@@ -9,6 +9,8 @@
 import UIKit
 import Charts
 
+
+
 struct Response: Codable {
     let metaData: MetaData
     let timeSeries5Min: [String: TimeSeries5Min]
@@ -19,7 +21,7 @@ struct Response: Codable {
     }
 }
 
-// MARK: - MetaData
+// MARK: - Metadane informacje giełdowe
 struct MetaData: Codable {
     let the1Information, the2Symbol, the3LastRefreshed, the4Interval: String
     let the5OutputSize, the6TimeZone: String
@@ -34,7 +36,9 @@ struct MetaData: Codable {
     }
 }
 
-// MARK: - TimeSeries5Min
+
+
+// MARK: - TimeSeries5Min - dane giełdowe
 struct TimeSeries5Min: Codable {
     let the1Open, the2High, the3Low, the4Close: String
     let the5Volume: String
@@ -47,6 +51,10 @@ struct TimeSeries5Min: Codable {
         case the5Volume = "5. volume"
     }
 }
+
+
+
+
 class StockViewController: UIViewController {
 
     
@@ -58,18 +66,26 @@ class StockViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBOutlet weak var stockNameField: UITextField!
     @IBOutlet weak var candleChartView: CandleStickChartView!
     
+    var stockName:String = ""
     var openData:[Double] = []
     var highData:[Double] = []
     var lowData:[Double] = []
     var closeData:[Double] = [] //tablice przechowujące informacje giełdowe
-    //var volumeData:[Double] = []
  
+    
+    
+    
+    
+    
     override var shouldAutorotate: Bool {
         return true
     }
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,11 +110,16 @@ class StockViewController: UIViewController {
         loadURL()
     }
     
+    
+    
+    
     func updateChartData() {    //uaktualniam wykres
         DispatchQueue.main.async {
             self.setDataCount()
         }
     }
+    
+    
     
     
     func setDataCount() {   //przypisuje wartosci giełdowe
@@ -148,6 +169,9 @@ class StockViewController: UIViewController {
                 self.highData.append(Double(keyValue.value.the2High)!)
                 //self.volumeData.append(Double(keyValue.value.the5Volume)!)
           })
+            DispatchQueue.main.async {
+                self.stockNameField.text = response.metaData.the2Symbol
+            }
         } catch {
           print(error)
         }
