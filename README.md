@@ -2,9 +2,11 @@
 "YourBucks" application is a study project for the "Mobile System Programming" subject.
 The application works based on "Charts" cocoapods library.
 It is designed to help control your expenses and income in individual categories by creating interactive charts. 
+You can also convert currencies and check stock candle charts.
 "YourBucks" is based on the Swift language and Xcode environment created for users of Apple mobile devices such as iPhone and iPad. <br>
 Icons used in the application: www.flaticon.com <br>
 Exchange rates are provided by: exchangeratesapi.io
+Stock market date are provided by: alphavantage.com
 
 <p align="center">
 <img src="screenshots/main_screen_light.png" width="30%" height="30%">
@@ -13,6 +15,6 @@ Exchange rates are provided by: exchangeratesapi.io
     <img src="screenshots/inc_screen.png" width="30%" height="30%"><br>
     <img src="screenshots/history_screen.png" width="30%" height="30%"><br>
     <img src="screenshots/currency_screen.png" width="30%" height="30%"><br>
-    <img src="screenshots/stocks_screen.png" width="60%" height="60%">
+    <img src="screenshots/stocks_screen.png" width="65%" height="65%">
 </p>
 
