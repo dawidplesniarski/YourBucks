@@ -53,6 +53,11 @@ class StockViewController: UIViewController {
     @IBAction func buttontapped(_ sender: Any) {
         updateChartData()
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     @IBOutlet weak var candleChartView: CandleStickChartView!
     
     var openData:[Double] = []
@@ -61,9 +66,15 @@ class StockViewController: UIViewController {
     var closeData:[Double] = [] //tablice przechowujące informacje giełdowe
     //var volumeData:[Double] = []
  
+    override var shouldAutorotate: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
 
         self.title = "Candle Stick Chart"
         
@@ -71,7 +82,7 @@ class StockViewController: UIViewController {
                
         candleChartView.chartDescription?.enabled = false
                
-        candleChartView.dragEnabled = false
+        candleChartView.dragEnabled = true
         candleChartView.setScaleEnabled(true)
         candleChartView.maxVisibleCount = 200
         candleChartView.pinchZoomEnabled = true

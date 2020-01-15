@@ -110,6 +110,14 @@
                                     <action selector="buttontapped:" destination="Eay-md-KGL" eventType="primaryActionTriggered" id="dO6-P3-lIS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2t-NX-K54">
+                                <rect key="frame" x="26" y="31" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="Eay-md-KGL" eventType="primaryActionTriggered" id="7ei-HN-pl5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="candle-chart-background"/>
                         <viewLayoutGuide key="safeArea" id="VJr-qt-G2f"/>
@@ -693,7 +701,7 @@
         <image name="settings_icon" width="32" height="32"/>
         <image name="stock_icon" width="32" height="32"/>
         <namedColor name="candle-chart-background">
-            <color red="0.14299303756476689" green="0.14299303756476689" blue="0.14299303756476689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14300000667572021" green="0.14300000667572021" blue="0.14300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
