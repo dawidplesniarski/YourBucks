@@ -100,12 +100,28 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-7p-yQC">
-                                <rect key="frame" x="181" y="31" width="53" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2t-NX-K54">
+                                <rect key="frame" x="23" y="31" width="43" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="Eay-md-KGL" eventType="primaryActionTriggered" id="7ei-HN-pl5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="upu-l3-uyL">
+                                <rect key="frame" x="159" y="27" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-7p-yQC">
+                                <rect key="frame" x="335" y="31" width="67" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="buttontapped:" destination="Eay-md-KGL" eventType="primaryActionTriggered" id="dO6-P3-lIS"/>
                                 </connections>
@@ -117,11 +133,12 @@
                     <navigationItem key="navigationItem" id="ZIb-wj-T9h"/>
                     <connections>
                         <outlet property="candleChartView" destination="V2T-m8-5bR" id="kuf-Tf-OJD"/>
+                        <outlet property="stockNameField" destination="upu-l3-uyL" id="yeR-nH-2wy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siK-GF-N7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="-690.40178571428567"/>
+            <point key="canvasLocation" x="1887" y="-690"/>
         </scene>
         <!--Currencies View Controller-->
         <scene sceneID="vE8-GU-Jaa">
@@ -471,7 +488,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="stock_icon"/>
                                 <connections>
-                                    <segue destination="Eay-md-KGL" kind="show" id="wdr-ES-qJn"/>
+                                    <segue destination="PA0-Wj-I6J" kind="show" id="zSw-sz-BWl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -685,6 +702,75 @@
             </objects>
             <point key="canvasLocation" x="1042.96875" y="19.765739385065885"/>
         </scene>
+        <!--Select Stock View Controller-->
+        <scene sceneID="Zvy-id-owi">
+            <objects>
+                <viewController id="PA0-Wj-I6J" customClass="SelectStockViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IUy-3X-k5v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="light_city_background" translatesAutoresizingMaskIntoConstraints="NO" id="rQQ-Be-ns7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHg-uU-lO3">
+                                <rect key="frame" x="49" y="200" width="318" height="231"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="rct-b6-Cmt">
+                                    <rect key="frame" x="0.0" y="0.0" width="318" height="231"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUZ-VB-Lif">
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="231"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="PA0-Wj-I6J" id="F2C-rA-tSz"/>
+                                                <outlet property="delegate" destination="PA0-Wj-I6J" id="E7W-G3-itn"/>
+                                            </connections>
+                                        </pickerView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfs-8x-dxq">
+                                <rect key="frame" x="138" y="530" width="140" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="vZU-GU-w6d">
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d21-XW-oCK">
+                                            <rect key="frame" x="13" y="3" width="115" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                            <state key="normal" title="Gotowe">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonTapped:" destination="PA0-Wj-I6J" eventType="primaryActionTriggered" id="frw-zK-FCQ"/>
+                                                <segue destination="Eay-md-KGL" kind="show" identifier="stockSegue" id="ry8-Q1-rny"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XlD-NX-bOm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1q7-9k-hB0"/>
+                    <connections>
+                        <outlet property="buttonBlurEffect" destination="Yfs-8x-dxq" id="aNG-1R-vWJ"/>
+                        <outlet property="pickerBlurEffect" destination="rHg-uU-lO3" id="6PQ-Cs-BJm"/>
+                        <outlet property="pickerView" destination="FUZ-VB-Lif" id="r0e-UF-X8A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0V-mE-akO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982.60869565217399" y="-690.40178571428567"/>
+        </scene>
     </scenes>
     <resources>
         <image name="currency_icon" width="32" height="32"/>
@@ -693,7 +779,7 @@
         <image name="settings_icon" width="32" height="32"/>
         <image name="stock_icon" width="32" height="32"/>
         <namedColor name="candle-chart-background">
-            <color red="0.14299303756476689" green="0.14299303756476689" blue="0.14299303756476689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14300000667572021" green="0.14300000667572021" blue="0.14300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

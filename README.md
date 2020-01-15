@@ -13,5 +13,6 @@ Exchange rates are provided by: exchangeratesapi.io
     <img src="screenshots/inc_screen.png" width="30%" height="30%"><br>
     <img src="screenshots/history_screen.png" width="30%" height="30%"><br>
     <img src="screenshots/currency_screen.png" width="30%" height="30%"><br>
+    <img src="screenshots/stocks_screen.png" width="60%" height="60%">
 </p>
 
