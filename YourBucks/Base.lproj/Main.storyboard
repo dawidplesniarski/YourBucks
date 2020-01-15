@@ -92,11 +92,11 @@
             <objects>
                 <viewController id="Eay-md-KGL" customClass="StockViewController" customModule="YourBucks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0k-Gf-viG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2T-m8-5bR" customClass="CandleStickChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="69" width="374" height="793"/>
+                                <rect key="frame" x="20" y="69" width="374" height="739"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -749,6 +749,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="buttonTapped:" destination="PA0-Wj-I6J" eventType="primaryActionTriggered" id="frw-zK-FCQ"/>
+                                                <segue destination="Eay-md-KGL" kind="show" identifier="stockSegue" id="ry8-Q1-rny"/>
                                             </connections>
                                         </button>
                                     </subviews>

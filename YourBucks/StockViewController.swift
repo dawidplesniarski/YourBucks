@@ -69,6 +69,7 @@ class StockViewController: UIViewController {
     @IBOutlet weak var stockNameField: UITextField!
     @IBOutlet weak var candleChartView: CandleStickChartView!
     
+    var stockSymbol:String = "AAPL"
     var stockName:String = ""
     var openData:[Double] = []
     var highData:[Double] = []
@@ -149,7 +150,7 @@ class StockViewController: UIViewController {
     
     func loadURL() {
     
-      let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=5min&apikey=NUFI25GZVGUHNMLL")
+      let stocksURL = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(stockSymbol)&interval=5min&apikey=NUFI25GZVGUHNMLL")
       URLSession.shared.dataTask(with: stocksURL!) { (data, response, error) in
         if let error = error {
           print(error)

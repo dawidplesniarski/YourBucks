@@ -44,6 +44,14 @@ class SelectStockViewController: UIViewController, UIPickerViewDelegate, UIPicke
         print(stockSymbol)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "stockSegue"){
+            let stockVC = segue.destination as! StockViewController
+            stockVC.stockSymbol = stockSymbol
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
