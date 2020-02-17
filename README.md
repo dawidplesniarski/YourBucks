@@ -1,6 +1,6 @@
 # YourBucks
 <p align="center">
-<img src="screenshots/app-icon.png" width="30%" height="30%">
+<img src="screenshots/app-icon.png" width="10%" height="10%">
 </p><br>
 "YourBucks" application is a study project for the "Mobile System Programming" subject.
 The application works based on "Charts" cocoapods library.
